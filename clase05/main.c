@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "utn.h"
-#define QTY_EMPLEADOS 5
+#define QTY_EMPLEADOS 20
 int mostrarArray(int* pArray,int limite);
 int initArray(int* pArray,int limite,int valor);
 int calcularMaximo(int* pArray,int limite,int*pMaximo);
@@ -41,7 +41,7 @@ int mostrarArray(int* pArray,int limite) //pArray[]
     return 0;
 }
 
-int calcularMaximo(int* pArray,int limite,int*pMaximo) //pArray!=NULL && limite>0
+int calcularMaximo(int* pArray,int limite,int*pMaximo)
 {
     int i;
     int auxMaximo;
