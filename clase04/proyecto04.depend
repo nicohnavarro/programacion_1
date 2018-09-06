@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1535678095 source:/home/alumno/alumno/nicolasNavarro/programacion1/proyecto04/main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+	"utn.h"
+
+1535677924 /home/alumno/alumno/nicolasNavarro/programacion1/proyecto04/utn.h
+
+1535678163 source:/home/alumno/alumno/nicolasNavarro/programacion1/proyecto04/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+	"utn.h"
+
