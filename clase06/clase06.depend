@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1536281235 source:/home/alumno/nicolasNavarro/programacion_1/clase06/main.c
+1536282314 source:/home/alumno/nicolasNavarro/programacion_1/clase06/main.c
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"

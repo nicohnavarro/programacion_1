@@ -14,13 +14,15 @@ int main()
 
     for (i=0;i<QTY_EMPLEADOS;i++)
     {
-        if(utn_getEntero(&edades[i],2,"Ingresa edad: ","Error\n",0,120))
+        if(utn_getEntero(&edades[i],2,"Ingresa edad: ","Error\n",1,120))
         //&edades[i] => (edades+i)
         {
           edades[i]=-1;
         }
     }
 
+    printf("\n");
+    mostrarArray(edades,QTY_EMPLEADOS);
     printf("\n");
     //mostrarArray(edades+2,QTY_EMPLEADOS-2);
     calcularMaximo(edades,QTY_EMPLEADOS,&maximo);
