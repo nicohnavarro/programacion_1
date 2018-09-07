@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
-1536273836 source:/home/alumno/nicolasNavarro/programacion_1/clase06/main.c
+1536281235 source:/home/alumno/nicolasNavarro/programacion_1/clase06/main.c
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
 
-1536277213 source:/home/alumno/nicolasNavarro/programacion_1/clase06/utn.c
+1536281740 source:/home/alumno/nicolasNavarro/programacion_1/clase06/utn.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio_ext.h>
 	"utn.h"
 
-1536276253 /home/alumno/nicolasNavarro/programacion_1/clase06/utn.h
+1536281664 /home/alumno/nicolasNavarro/programacion_1/clase06/utn.h
 

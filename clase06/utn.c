@@ -144,7 +144,7 @@ int esNumero(char* pArray)
         }
         i++;
     }*/
-    while(pArray[i]!=0)
+    while(pArray[i]!=0)//expresiones regulares
     {
         if(pArray[i]<48 || pArray[i]>57)
         {
@@ -155,4 +155,88 @@ int esNumero(char* pArray)
 
     }
     return retorno;
+}
+
+int ordenarArray(int* pArray,int limite,int orden)
+{
+    int i;
+    int auxiliar;
+    int flag=1;
+    int retorno=-1;
+
+    while(flag==1)
+    {
+        flag=0;
+        retorno=-1;
+        for(i=0;i<limite-1;i++)
+        {
+            if(pArray[i]>pArray[i+1] && orden==0)
+            {
+                auxiliar=pArray[i];
+                pArray[i]=pArray[i+1];
+                pArray[i+1]=auxiliar;
+                flag=1;
+            }
+            else if(pArray[i]<pArray[i+1] && orden==1)
+            {
+                auxiliar=pArray[i];
+                pArray[i]=pArray[i+1];
+                pArray[i+1]=auxiliar;
+                flag=1;
+            }
+        }
+        retorno=0;
+    }
+    return retorno;
+}
+
+int mostrarArray(int* pArray,int limite) //pArray[]
+{
+    int i;
+    for(i=0;i<limite;i++)
+    {
+        printf("el empleado %d \t tiene la edad: %d -- %p \n",i,pArray[i],pArray+i);//*pArray+i -- &pArray[i]
+    }
+    return 0;
+}
+
+int initArray(int* pArray,int limite,int valor)
+{
+    int retorno=-1;
+    int i;
+    if(pArray!=NULL && limite>0)
+    {
+        for(i=0;i<limite;i++)
+        {
+            pArray[i]=valor;
+            //*(pArray+1)=valor;
+        }
+        retorno=0;
+    }
+
+
+
+    return retorno;
+}
+
+int calcularMaximo(int* pArray,int limite,int*pMaximo)
+{
+    int i;
+    int auxMaximo=0;
+    int flag=0;
+    for(i=0;i<limite;i++)
+    {
+        if(flag==0)
+        {
+            auxMaximo=pArray[i];
+            flag=1;
+        }
+        else if (pArray[i]>auxMaximo)
+        {
+            auxMaximo=pArray[i];
+        }
+
+    }
+    *pMaximo=auxMaximo;
+    return 0;
 }
