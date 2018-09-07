@@ -168,16 +168,9 @@ int ordenarArray(int* pArray,int limite,int orden)
     {
         flag=0;
         retorno=-1;
-        for(i=0;i<limite-1;i++)
+        for(i=0;i<(limite-1);i++)
         {
-            if(pArray[i]>pArray[i+1] && orden==0)
-            {
-                auxiliar=pArray[i];
-                pArray[i]=pArray[i+1];
-                pArray[i+1]=auxiliar;
-                flag=1;
-            }
-            else if(pArray[i]<pArray[i+1] && orden==1)
+            if((pArray[i]>pArray[i+1] && orden==0) || (pArray[i]<pArray[i+1] && orden==1))
             {
                 auxiliar=pArray[i];
                 pArray[i]=pArray[i+1];
