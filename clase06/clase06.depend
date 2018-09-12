@@ -12,3 +12,16 @@
 
 1536281664 /home/alumno/nicolasNavarro/programacion_1/clase06/utn.h
 
+1536721733 source:/home/nicolas/UTN/programacion_1/clase06/main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+
+1536723914 /home/nicolas/UTN/programacion_1/clase06/utn.h
+
+1536723970 source:/home/nicolas/UTN/programacion_1/clase06/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+	"utn.h"
+

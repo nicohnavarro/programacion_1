@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "utn.h"
-#define QTY_EMPLEADOS 6
+#define QTY_EMPLEADOS 5
 
 int main()
 {
@@ -27,12 +27,13 @@ int main()
     //mostrarArray(edades+2,QTY_EMPLEADOS-2);
     calcularMaximo(edades,QTY_EMPLEADOS,&maximo);
     printf("el maximo es: %d\n",maximo);
-    ordenarArray(edades,QTY_EMPLEADOS,1);
-    mostrarArray(edades,QTY_EMPLEADOS);
+    //ordenarArray(edades,QTY_EMPLEADOS,1);
+    //mostrarArray(edades,QTY_EMPLEADOS);
     printf("\n");
-    ordenarArray(edades,QTY_EMPLEADOS,0);
+    //ordenarArray(edades,QTY_EMPLEADOS,0);
+    //mostrarArray(edades,QTY_EMPLEADOS);
+    qs(edades,QTY_EMPLEADOS);
     mostrarArray(edades,QTY_EMPLEADOS);
-
     return 0;
 }
 

@@ -233,3 +233,40 @@ int calcularMaximo(int* pArray,int limite,int*pMaximo)
     *pMaximo=auxMaximo;
     return 0;
 }
+
+void quick_sort(int* pArray, int limite_izq, int limite_der)
+{
+    int izquierda;
+    int derecha;
+    int auxiliar;
+    int pivote;
+
+    izquierda=limite_izq;
+    derecha=limite_der;
+    pivote=pArray[(izquierda+derecha)/2];
+    do {
+        while(pArray[izquierda]<pivote && izquierda<limite_der)izquierda++;
+        while(pivote<pArray[derecha] && derecha>limite_izq)derecha--;
+        if(izquierda<=derecha)
+        {
+            auxiliar=pArray[izquierda];
+            pArray[izquierda]=pArray[derecha];
+            pArray[derecha]=auxiliar;
+            izquierda++;
+            derecha--;
+        }
+    }while(izquierda<=derecha);
+    if(limite_izq<derecha)
+    {
+        quick_sort(pArray,limite_izq,derecha);
+    }
+    if(limite_der>izquierda)
+    {
+        quick_sort(pArray,izquierda,limite_der);
+    }
+
+}
+void qs(int* pArray,int limite)
+{
+    quick_sort(pArray,0,limite-1);
+}
