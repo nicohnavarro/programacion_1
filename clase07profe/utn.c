@@ -1,21 +1,32 @@
 #include <stdio_ext.h>
+#include <string.h>
 #include <stdlib.h>
 #include "utn.h"
-#include "string.h"
+
 int isFloat(char* pBuffer)
 {
     return 1;
 }
 
-static int getString()
+static int getString(char* pBuffer, int limite)
 {
     char bufferString [4096];
-    __fpurge(stdin);
-    fgets(bufferString,sizeof(bufferString),stdin);
-    if(bufferString[strlen(bufferString)-1]=='\n')
+    int retorno = -1;
+    if(pBuffer != NULL && limite > 0)
     {
-        bufferString[strlen(buffer)-1]='\0';
+        __fpurge(stdin);
+        fgets(bufferString,sizeof(bufferString),stdin);
+        if(bufferString[strlen(bufferString)-1]=='\n')
+        {
+            bufferString[strlen(bufferString)-1]='\0';
+        }
+        if(strlen(bufferString) <= limite)
+        {
+            strncpy(pBuffer,bufferString,limite);
+            retorno = 0;
+        }
     }
+    return retorno;
 }
 
 
@@ -25,7 +36,7 @@ static int getFloat(float* pBuffer)
     int retorno = -1;
 
 
-    if(getString(bufferString) == 0 && isFloat(bufferString))
+    if(getString(bufferString,sizeof(bufferString)) == 0 && isFloat(bufferString))
     {
         *pBuffer = atof(bufferString);
         retorno = 0;
@@ -64,12 +75,6 @@ int utn_getFloat(  float* pFloat, char* msg,
     }
     return retorno;
 }
-
-
-
-
-
-
 
 
 
