@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1536799787 source:/home/alumno/nicolasNavarro/programacion_1/clase07profe/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1536799787 /home/alumno/nicolasNavarro/programacion_1/clase07profe/utn.h
+
