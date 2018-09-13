@@ -306,14 +306,25 @@ void utn_qs(int* pArray,int limite)
     utn_quick_sort(pArray,0,limite-1);
 }
 
-static int getString(char* bufferString)
+static int getString(char* pBuffer, int limite)
 {
     char bufferString[4085];
-    __fpurge(stdin);
-    fgets(bufferString, sizeof(bufferString),stdin);
-    if(bufferString[strlen(bufferString)-1]=='\n')
+    int retorno=-1;
+    if(pBuffer!= NULL && limite >0)
     {
-        bufferString[strlen(bufferString)-1]='\0';
-        retorno=0;
+        __fpurge(stdin);
+        fgets(bufferString, sizeof(bufferString),stdin);
+        if(bufferString[strlen(bufferString)-1]=='\n')
+        {
+            bufferString[strlen(bufferString)-1]='\0';
+        }
+        if(strlen(bufferString)<=limite)
+        {
+            strncpy(pBuffer,bufferString,limite);
+            retorno=0;
+        }
+
     }
+    return retorno;
+
 }
