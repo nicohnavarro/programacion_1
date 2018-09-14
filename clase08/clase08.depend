@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1536879083 source:/home/alumno/nicolasNavarro/programacion_1/clase08/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+
+1536887239 source:/home/alumno/nicolasNavarro/programacion_1/clase08/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1536878941 /home/alumno/nicolasNavarro/programacion_1/clase08/utn.h
+
