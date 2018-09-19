@@ -1,341 +1,298 @@
-#include <stdio.h>
+#include "UTN.h"
+#include <stdio_ext.h>
 #include <stdlib.h>
-#include <time.h>
 #include <string.h>
+#include <time.h>
 
+static int getFloat(float*pBuffer);
+static int getString(char* bufferString,int limite);
+static int isFloat(char* pBuffer);
+static int getInt(int*pBuffer);
+static int isInt(char *pBuffer);
+static int isLetras(char*pBuffer);
 
-/**
- * \brief Solicita un número al usuario y devuelve el resultado
- * \param mensaje Es el mensaje a ser mostrado
- * \return El número ingresado por el usuario
- *
- */
-float getFloat(char* mensaje)
-{
-    float auxiliar;
-    printf("%s",mensaje);
-    scanf("%f",&auxiliar);
-    return auxiliar;
-}
+int utn_getEntero(int* pEntero,int reintentos,char* msg,char*msgError,int min,int max){
+    int retorno = -1;
+    int buffer;
 
-
-/**
- * \brief Solicita un número al usuario y devuelve el resultado
- * \param mensaje Es el mensaje a ser mostrado
- * \return El número ingresado por el usuario
- *
- */
-int getInt(char* mensaje)
-{
-    int auxiliar;
-    printf("%s",mensaje);
-    scanf("%d",&auxiliar);
-    return auxiliar;
-}
-
-
-/**
- * \brief Solicita un caracter al usuario y devuelve el resultado
- * \param mensaje Es el mensaje a ser mostrado
- * \return El caracter ingresado por el usuario
- *
- */
-char getChar(char* mensaje)
-{
-    char auxiliar;
-    printf("%s",mensaje);
-    fflush(stdin);
-    scanf("%c",&auxiliar);
-    return auxiliar;
-}
-/**
- * \brief Genera un número aleatorio
- * \param desde Número aleatorio mínimo
- * \param hasta Número aleatorio máximo
- * \param iniciar Indica si se trata del primer número solicitado 1 indica que si
- * \return retorna el número aleatorio generado
- *
- */
-char getNumeroAleatorio(int desde , int hasta, int iniciar)
-{
-    if(iniciar)
-        srand (time(NULL));
-    return desde + (rand() % (hasta + 1 - desde)) ;
-}
-
-
-/**
- * \brief Verifica si el valor recibido es numérico aceptando flotantes
- * \param str Array con la cadena a ser analizada
- * \return 1 si es númerico y 0 si no lo es
- *
- */
-
-int esNumericoFlotante(char str[])
-{
-   int i=0;
-   int cantidadPuntos=0;
-   while(str[i] != '\0')
-   {
-       if (str[i] == '.' && cantidadPuntos == 0)
-       {
-           cantidadPuntos++;
-           i++;
-           continue;
-
-       }
-       if(str[i] < '0' || str[i] > '9')
-           return 0;
-       i++;
-   }
-   return 1;
-}
-
-/**
- * \brief Verifica si el valor recibido es numérico
- * \param str Array con la cadena a ser analizada
- * \return 1 si es númerico y 0 si no lo es
- *
- */
-
-int esNumerico(char str[])
-{
-   int i=0;
-   while(str[i] != '\0')
-   {
-       if(str[i] < '0' || str[i] > '9')
-           return 0;
-       i++;
-   }
-   return 1;
-}
-
-/**
- * \brief Verifica si el valor recibido contiene solo letras
- * \param str Array con la cadena a ser analizada
- * \return 1 si contiene solo ' ' y letras y 0 si no lo es
- *
- */
-int esSoloLetras(char str[])
-{
-   int i=0;
-   while(str[i] != '\0')
-   {
-       if((str[i] != ' ') && (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z'))
-           return 0;
-       i++;
-   }
-   return 1;
-}
-
-
-/**
- * \brief Verifica si el valor recibido contiene solo letras y números
- * \param str Array con la cadena a ser analizada
- * \return 1 si contiene solo espacio o letras y números, y 0 si no lo es
- *
- */
-int esAlfaNumerico(char str[])
-{
-   int i=0;
-   while(str[i] != '\0')
-   {
-       if((str[i] != ' ') && (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z') && (str[i] < '0' || str[i] > '9'))
-           return 0;
-       i++;
-   }
-   return 1;
-}
-
-
-/**
- * \brief Verifica si el valor recibido contiene solo números, + y -
- * \param str Array con la cadena a ser analizada
- * \return 1 si contiene solo numeros, espacios y un guion.
- *
- */
-int esTelefono(char str[])
-{
-   int i=0;
-   int contadorGuiones=0;
-   while(str[i] != '\0')
-   {
-       if((str[i] != ' ') && (str[i] != '-') && (str[i] < '0' || str[i] > '9'))
-           return 0;
-       if(str[i] == '-')
-            contadorGuiones++;
-       i++;
-   }
-   if(contadorGuiones==1) // debe tener un guion
-        return 1;
-
-    return 0;
-}
-
-/**
- * \brief Solicita un texto al usuario y lo devuelve
- * \param mensaje Es el mensaje a ser mostrado
- * \param input Array donde se cargará el texto ingresado
- * \return void
- */
-void getString(char mensaje[],char input[])
-{
-    printf("%s",mensaje);
-    scanf ("%s", input);
-}
-
-/**
- * \brief Solicita un texto al usuario y lo devuelve
- * \param mensaje Es el mensaje a ser mostrado
- * \param input Array donde se cargará el texto ingresado
- * \return 1 si el texto contiene solo letras
- */
-int getStringLetras(char mensaje[],char input[])
-{
-    char aux[256];
-    getString(mensaje,aux);
-    if(esSoloLetras(aux))
-    {
-        strcpy(input,aux);
-        return 1;
-    }
-    return 0;
-}
-
-/**
- * \brief Solicita un texto numérico al usuario y lo devuelve
- * \param mensaje Es el mensaje a ser mostrado
- * \param input Array donde se cargará el texto ingresado
- * \return 1 si el texto contiene solo números
- */
-int getStringNumeros(char mensaje[],char input[])
-{
-    char aux[256];
-    getString(mensaje,aux);
-    if(esNumerico(aux))
-    {
-        strcpy(input,aux);
-        return 1;
-    }
-    return 0;
-}
-
-
-/**
- * \brief Solicita un texto numérico al usuario y lo devuelve (acepta flotantes)
- * \param mensaje Es el mensaje a ser mostrado
- * \param input Array donde se cargará el texto ingresado
- * \return 1 si el texto contiene solo números
- */
-int getStringNumerosFlotantes(char mensaje[],char input[])
-{
-    char aux[256];
-    getString(mensaje,aux);
-    if(esNumericoFlotante(aux))
-    {
-        strcpy(input,aux);
-        return 1;
-    }
-    return 0;
-}
-
-
-/**
- * \brief Solicita un numero entero al usuario y lo valida
- * \param requestMessage Es el mensaje a ser mostrado para solicitar el dato
- * \param requestMessage Es el mensaje a ser mostrado en caso de error
- * \return El número ingresado por el usuario
- *
- */
-int getValidInt(char requestMessage[],char errorMessage[], int lowLimit, int hiLimit)
-{
-    char auxStr[256];
-    int auxInt;
-    while(1)
-    {
-        if (!getStringNumeros(requestMessage,auxStr))
+    if(pEntero!=NULL&& msg !=NULL && msgError!=NULL && min<= max && reintentos>=0){
+        do
         {
-            printf ("%s\n",errorMessage);
-            continue;
-
-        }
-        auxInt = atoi(auxStr);
-        if(auxInt < lowLimit || auxInt > hiLimit)
-        {
-            printf ("El numero del debe ser mayor a %d y menor a %d\n",lowLimit,hiLimit);
-            continue;
-
-        }
-        return auxInt;
-
+            reintentos--;
+            printf("\n%s: ",msg);
+            if(getInt(&buffer) == 0 && buffer >= min && buffer<=max){
+                    *pEntero= buffer;
+                    retorno = 0;
+                    break;
+            }else{
+                printf("\n%s",msgError);
+            }
+        }while(reintentos >= 0);
     }
-
-
+    return retorno;
 }
+int utn_getFloat(float*pFloat,int reintentos,char* msg,char*msgError,float min,float max){
+    int retorno = -1;
+    float buffer;
 
-/**
- * \brief Limpia el stdin, similar a fflush
- * \param -
- * \return -
- *
- */
-void cleanStdin(void)
-{
-    int c;
-    do {
-        c = getchar();
-    } while (c != '\n' && c != EOF);
-}
-
-/**
- * \brief Solicita un string
- * \param requestMessage Es el mensaje a ser mostrado para solicitar el dato
- * \param requestMessage Es el mensaje a ser mostrado en caso de error
- * \param input Array donde se cargará el texto ingresado
- * \return -
- *
- */
-void getValidString(char requestMessage[],char errorMessage[], char input[])
-{
-
-    while(1)
-    {
-        if (!getStringLetras(requestMessage,input))
+    if(pFloat!=NULL&& msg !=NULL && msgError!=NULL && min<= max && reintentos>=0){
+        do
         {
-            printf ("%s\n",errorMessage);
-            continue;
-        }
-        cleanStdin();
-        break;
+            reintentos--;
+            printf("\n%s: ",msg);
+            if(getFloat(&buffer) == 0 && buffer >= min && buffer<=max){
+                    *pFloat= buffer;
+                    retorno = 0;
+                    break;
+            }else{
+                printf("\n%s",msgError);
+            }
+        }while(reintentos >= 0);
     }
-
+    return retorno;
 }
-
-
-void insertion(int data[],int len)
-{
+static int getInt(int* pBuffer){
+    char bufferString[200];
+    int retorno =-1;
+    if(getString(bufferString,200)==0 && isInt(bufferString)==0){
+        *pBuffer=atoi(bufferString);
+        retorno=0;
+    }
+    return retorno;
+}
+static int isInt(char *pBuffer){
+    int retorno=-1;
+    int i=0;
+    do{
+        if(*(pBuffer+i)<48||*(pBuffer+i)>57){
+                break;
+        }
+        i++;
+    }while (i<strlen(pBuffer));
+    if(i==strlen(pBuffer)){
+        retorno=0;
+    }
+    return retorno;
+}
+static int isFloat(char* pBuffer){
+    int retorno=-1;
+    int i=0;
+    int contadorDePuntos=0;
+    do{
+        if(*(pBuffer+i)==','||*(pBuffer+i)=='.'){
+            *(pBuffer+i)='.';
+            contadorDePuntos++;
+            if(contadorDePuntos==2){
+                break;
+            }
+        }else if(*(pBuffer+i)<48||*(pBuffer+i)>57){
+                break;
+        }
+        i++;
+    }while (i<strlen(pBuffer));
+    if(i==strlen(pBuffer)){
+        retorno=0;
+    }
+    return retorno;
+}
+static int getString(char* pBuffer,int limite){
+    char bufferString[4096];
+    int retorno =-1;
+    if (pBuffer != NULL && limite >0){
+        __fpurge(stdin);
+        fgets(bufferString,sizeof(bufferString),stdin);
+        if (bufferString[strlen(bufferString)-1]=='\n'){
+            bufferString[strlen(bufferString)-1]='\0';
+        }
+        if(strlen(bufferString)<= limite){
+            strncpy(pBuffer,bufferString,limite);
+            retorno=0;
+        }
+    }
+    return retorno;
+}
+static int getFloat(float*pBuffer){
+    char bufferString[200];
+    int retorno =-1;
+    if(getString(bufferString,200)==0 && isFloat(bufferString)==0){
+        *pBuffer=atof(bufferString);
+        retorno=0;
+    }
+    return retorno;
+}
+int utn_mostrarArray(int * pArray,int limite){
     int i;
-    int j;
+    for (i=0;i<limite;i++){
+        printf("\n%d",pArray[i]);
+    }
+    return 0;
+}
+int utn_calcularNumeroMaximo(int *pArray,int limite,int *maximo){
+    int auxMax;
+    int i;
+    int retorno=-1;
+    if(limite>0 && pArray!=NULL){
+        retorno=0;
+        for (i=0;i<limite;i++){
+            if(i==0){
+                auxMax=pArray[i];
+            }else if(pArray[i]>auxMax){
+                auxMax=*(pArray+i);
+            }
+        }
+    }
+    *maximo=auxMax;
+    return retorno;
+}
+int utn_initArray(int * pArray,int limite,int valor){
+    int i;
+    int retorno=-1;
+    if(limite>0 && pArray!=NULL){
+        retorno=0;
+        for (i=0;i<limite;i++){
+            *(pArray+i)=valor;
+        }
+    }
+    return retorno;
+}
+int utn_verificarNumeroEntero(int *pEntero,char* texto,char* textoError){
+    int aux;
+    printf("%s",texto);
+    while(scanf("%d",&aux)==0){
+        __fpurge(stdin);
+        printf("%s",textoError);
+        }
+    *pEntero=aux;
+    return 0;
+}
+int utn_verificarNumeroFloat(float *pFloat,char* texto,char* textoError){
+    float aux;
+    printf("%s",texto);
+    while(scanf("%f",&aux)==0){
+        __fpurge(stdin);
+        printf("%s",textoError);
+        }
+    *pFloat=aux;
+    return 0;
+}
+int utn_verificarNumeroChar(char *pChar,char* texto,char* textoError){
+    char aux;
+    printf("%s",texto);
+    while(scanf("%c",&aux)==0){
+        __fpurge(stdin);
+        printf("%s",textoError);
+        }
+    *pChar=aux;
+    return 0;
+}
+int utn_cargaNumeroAleatoriosEnArrays(int* pArray,int len,int min, int max){
+    int i;
+    srand(time(NULL));
+    for (i=0;i<len;i++){
+        pArray[i]= min+1 + rand() % (max+1-min);
+    }
+    return 0;
+}
+int utn_promedioArray(int*pArray,int limite,float *promedio,int valorOmision){
+    int i;
+    int cantidadValorOmision=0;
+    int acumulador=0;
+    int retorno=-1;
+
+    for (i=0;i<limite;i++){
+        if (pArray[i]==valorOmision){
+            cantidadValorOmision++;
+        }else{
+            acumulador+=*(pArray+i);
+            retorno=0;
+        }
+    }
+    if(retorno==0){
+        *promedio=acumulador/(limite-cantidadValorOmision);
+    }
+    return retorno;
+}
+int utn_ordenarArray(int *pArray,int limite,int flagMaxMin){
+    int i=0;
+    int aux;
+    int retorno=-1;
+    int flag=1;
+
+    if(pArray!=NULL&&limite>0){
+        retorno=0;
+        aux=pArray[i];
+        while(flag==1){
+            flag=0;
+            for(i=0;i<(limite-1);i++){
+                if( (flagMaxMin==1&& pArray[i]>pArray[i+1]) ||
+                    (flagMaxMin==0&&pArray[i]<pArray[i+1]))
+                {
+                    flag=1;
+                    aux=pArray[i];
+                    pArray[i]=pArray[i+1];
+                    pArray[i+1]=aux;
+                }
+            }
+        }
+
+    }
+    return retorno;
+}
+int utn_getLetras(char *pBuffer,int limite,int reintentos,char* msj,char*msjError){
+    int retorno=-1;
+    char buffer[limite];
+    if(pBuffer!=NULL && limite >0 && reintentos >=0){
+        do{
+            reintentos--;
+            printf("\n%s",msj);
+            if(getString(buffer,limite)==0 && isLetras(buffer)==0){
+                strncpy(pBuffer,buffer,limite);
+                retorno=0;
+                break;
+            }else
+                printf("\n%s",msjError);
+        }while(reintentos>=0);
+    }
+    return retorno;
+}
+static int isLetras(char*pBuffer){
+    int retorno=-1;
+    int i=0;
+    if(pBuffer!=NULL){
+        do{
+            if((*(pBuffer+i)<65||*(pBuffer+i)>90) && (*(pBuffer+i)<97||*(pBuffer+i)>122)){
+                break;
+            }
+            i++;
+        }while(i<strlen(pBuffer));
+        if(i==strlen(pBuffer)){
+            retorno=0;
+        }
+    }
+    return retorno;
+}
+int ordenarInsertion(int* pArray,int limite){
+    int i,j;
     int temp;
-    for(i=1;i<len;i++)
-    {
-        temp=data[i];
+    for (i=1;i<limite;i++){
+        temp=*(pArray+i);
         j=i-1;
-        while(j>=0 && temp<data[j])//temp<data[j] o temp>data[j]
-        {
-            data[j+1]=data[j];
+        while (j>=0 && temp<*(pArray+j)){
+            *(pArray+j+1)=*(pArray+j);
             j--;
         }
-        data[j+1]=temp; //insertion
+        *(pArray+j+1)=temp;
     }
+    return 0;
 }
-
-int utn_mostrar_array(int* pArray,int limite) //pArray[]
-{
-    int i;
-    for(i=0;i<limite;i++)
-    {
-        printf("%d \t %d -- %p \n",i,pArray[i],pArray+i);//*pArray+i -- &pArray[i]
-    }
+int printPersona(Persona *pBuffer){
+    printf("\tNombre\taltura\tedad:\n\n");
+    printf("\t%s\t%.2f\t%d",pBuffer->nombre,pBuffer->altura,pBuffer->edad);
+    return 0;
+}
+int utn_altaPersona(Persona* pPersona,int reintentos,int lenString,int min,int max){
+    utn_getLetras(&pPersona->nombre,lenString,reintentos,"Ingrese el nombre : ","\n***ERROR INTENTE NUEVAMENTE***");
+    utn_getEntero(&pPersona->edad,reintentos,"Ingrese la edad: ","Error intente nuevamente : ",min,max);
+    utn_getFloat(&pPersona->altura,reintentos,"Ingrese su altura: ","Error amiguito: ",0,3);
     return 0;
 }

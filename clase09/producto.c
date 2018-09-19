@@ -22,15 +22,15 @@ int altaProducto(Producto*pp,int indice,int lenght)
 {
     char auxNombre[50];
     char auxDescrip[200];
-    char auxPrecio [500];
+    float auxPrecio;
     if (indice<lenght)
     {
-        getStringLetras("Ingresa el nombre del producto: \n",auxNombre);
-        getStringLetras("Ingresa la descripcion del produto: \n",auxDescrip);
-        getStringNumerosFlotantes("Ingrese el precio: $",auxPrecio);
+        utn_getLetras(auxNombre,50,2,"Ingrese el nombre: \n","Error\n");
+        utn_getLetras(auxDescrip,50,2,"Ingrese la descripcion : \n","Error\n");
+        utn_getFloat(&auxPrecio,2,"Ingrese el precio: $ \n","Error\n",0,100000);
         strcpy(pp[indice].nombre,auxNombre);
         strcpy(pp[indice].descripcion,auxDescrip);
-        pp[indice].precio=atof(auxPrecio);
+        pp[indice].precio=auxPrecio;
         pp[indice].isEmpty=0;
     }
     else
