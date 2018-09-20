@@ -34,6 +34,7 @@ int altaProducto(Producto*pp,int indice,int length)
         strcpy(pp[indice].descripcion,auxDescrip);
         pp[indice].precio=auxPrecio;
         pp[indice].isEmpty=0;
+        pp[indice].id=generarID();
     }
     else
     {
@@ -112,3 +113,40 @@ void menuProducto(Producto* pp)
 
     }while(opcion=='a' || opcion=='b');
 }
+
+static int contID=-1;
+int generarID(void)
+{   //Privada de la Funcion Solo visibilidad en la funcion
+    static int contID=-1; //Variable no se Eliminan salis de la funcion y la variable sigue viva.
+    return contID++;
+}
+
+/*
+1) Definir un tipo de dato que represente un producto. El producto tiene un nombre, una descripcion y un precio
+
+2) Definir un array de 200 productos, indicar de alguna manera que la info de cada item no esta cargada.
+
+3) Realizar una funcion que reciba el array, un indice, y le permita al usuario cargar los datos en el item de la posicion especificada por el indice.
+
+4) Realizar una funcion que reciba el array y un indice e imprima los datos del item de la posicion especificada por el indice.
+
+5) Realizar una funcion que me devuelva el indice de un item vacio (sin cargar).
+
+
+3) Realizar un programa con un menu de dos opciones:
+   a) Cargar un producto
+   b) Imprimir lista productos
+
+
+4) Agregar al tipo de dato el campo ID que represente un identificador unico. Modificar el codigo anterior para que el ID se genere automaticamente. Se debera cargar el ID automaticamente al cargar un producto, y se debera imprimir al imprimir la lista.
+
+5) Realizar una funcion que reciba el array y un ID, y me devuelva el indice del item con dicho ID.
+
+6) Realizar una funcion que reciba el array, un indice, y le permita al usuario modificar los campos nombre y precio del item del array en la posicion especificada por el indice.
+
+
+7) Agregar una opcion en el menu. "Editar producto" que pida al usuario el ID del mismo y le permita cambiar el nombre y el precio.
+
+8) Agregar una opcion en el menu "Borrar producto" que pida al usuario el ID del mismo.
+
+*/
