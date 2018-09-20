@@ -3,6 +3,8 @@
 #include<string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#define MAX 200
+#include<stdio_ext.h>
 
 int arrayInit(Producto* pp,int length,int valor)
 {
@@ -70,4 +72,43 @@ int getIndiceVacio(Producto* pp,int length)
         }
     }
     return retorno;
+}
+
+int listarProductos(Producto* pp,int length)
+{
+    int i;
+    for (i=0;i<length;i++)
+    {
+        if(pp[i].isEmpty==0)
+            imprimirProducto(pp,i);
+    }
+    return 0;
+}
+
+void menuProducto(Producto* pp)
+{
+
+    char opcion;
+
+    arrayInit(pp,MAX,1);
+
+    do
+    {
+        printf("a)Cargar producto \nb)Imprimir lista de Productos \nPulse cualquier tecla para salir \nIngresar opcion: \n");
+        __fpurge(stdin);
+        scanf("%c",&opcion);
+        switch(opcion)
+        {
+            case 'a':
+                altaProducto(pp,getIndiceVacio(pp,MAX),MAX);
+                break;
+            case 'b':
+                listarProductos(pp,MAX);
+                break;
+            default:
+                printf("SALIENDO");
+
+        }
+
+    }while(opcion=='a' || opcion=='b');
 }

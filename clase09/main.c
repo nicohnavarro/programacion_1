@@ -16,6 +16,16 @@ posicion del indice.
 5)Hacer una funcion que devuelva el indice de un item vacio
 (sin cargar)
 
+6) Realizar un programa con un menu de dos opciones :
+a)cargar un producto
+b)imprimir lista de producto
+
+7)Agregar el tipo de dato el campo ID que
+represente un identificador unico
+Modificar el codigo anterior para el que ID se genere
+automaticamente
+Se debera cargar el ID automaticamente al cargar un producto y debera imprimir
+al imprimir la lista
 
 */
 #include <stdio.h>
@@ -32,7 +42,7 @@ int main()
     {
       p[i].isEmpty=1;
     }*/
-    arrayInit(p,MAX,1);
+    //arrayInit(p,MAX,1);
 
     /*strcpy(p[5].nombre,"Cocina");
     strcpy(p[5].descripcion,"asdjasdklsadasldjasd");
@@ -46,10 +56,11 @@ int main()
         printf(" NO Esta cargado el producto nro: %d\n",i);
       }
     }*/
-    altaProducto(p,0,MAX);
-    altaProducto(p,100,MAX);
+    //altaProducto(p,0,MAX);
+    //altaProducto(p,100,MAX);
 
-    imprimirProducto(p,100);
-    printf("EL indice vacio es %d",getIndiceVacio(p,MAX));
+    //imprimirProducto(p,100);
+    //printf("EL indice vacio es %d",getIndiceVacio(p,MAX));
+    menuProducto(p);
     return 0;
 }

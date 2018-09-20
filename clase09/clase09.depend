@@ -1,19 +1,20 @@
 # depslib dependency file v1.0
-1537402454 source:/home/alumno/nicolasNavarro/programacion_1/clase09/producto.c
+1537405518 source:/home/alumno/nicolasNavarro/programacion_1/clase09/producto.c
 	"UTN.h"
 	"producto.h"
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
+	<stdio_ext.h>
 
-1537402484 source:/home/alumno/nicolasNavarro/programacion_1/clase09/main.c
+1537404339 source:/home/alumno/nicolasNavarro/programacion_1/clase09/main.c
 	<stdio.h>
 	<stdlib.h>
 	"producto.h"
 	<string.h>
 	"UTN.h"
 
-1537402454 /home/alumno/nicolasNavarro/programacion_1/clase09/producto.h
+1537405673 /home/alumno/nicolasNavarro/programacion_1/clase09/producto.h
 
 1537400967 /home/alumno/nicolasNavarro/programacion_1/clase09/UTN.h
 
