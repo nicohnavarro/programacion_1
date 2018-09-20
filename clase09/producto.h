@@ -9,7 +9,8 @@ typedef struct {
 }Producto;
 
 int arrayInit(Producto* pp,int lenght,int valor);
-int altaProducto(Producto* pp,int indice,int lenght);
-
+int altaProducto(Producto* pp,int indice,int length);
+int imprimirProducto(Producto* pp,int indice);
+int getIndiceVacio(Producto* pp,int length);
 
 #endif // PRODUCTO_H_INCLUDED

@@ -9,6 +9,14 @@ de alguna manera que la info no esta cargada.
 un indice,y le permita al usuario cargar los datos en el item de
 la posicion especificada por el indice.
 
+4)Realizar una funcion que reciba el array
+y un indice e imprima los datos del producto de la
+posicion del indice.
+
+5)Hacer una funcion que devuelva el indice de un item vacio
+(sin cargar)
+
+
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,7 +27,7 @@ la posicion especificada por el indice.
 int main()
 {
     Producto p[MAX];
-    int i;
+//    int i;
     /*for (i=0;i<MAX;i++)
     {
       p[i].isEmpty=1;
@@ -38,15 +46,10 @@ int main()
         printf(" NO Esta cargado el producto nro: %d\n",i);
       }
     }*/
-
+    altaProducto(p,0,MAX);
     altaProducto(p,100,MAX);
 
-    for (i=0;i<MAX;i++)
-    {
-      if(p[i].isEmpty==0)
-      {
-        printf(" Esta cargado el producto nro: %d\n",i);
-      }
-    }
+    imprimirProducto(p,100);
+    printf("EL indice vacio es %d",getIndiceVacio(p,MAX));
     return 0;
 }
