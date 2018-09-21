@@ -1,0 +1,60 @@
+# depslib dependency file v1.0
+1537319550 source:/home/profesor/Descargas/clase7_final/producto.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"producto.h"
+
+1536881187 source:/home/profesor/Descargas/clase7_final/utn.c
+	<stdio_ext.h>
+	<string.h>
+	<stdlib.h>
+	<ctype.h>
+	"utn.h"
+
+1536878357 /home/profesor/Descargas/clase7_final/utn.h
+
+1537313494 source:/home/profesor/Descargas/clase7_final/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"producto.h"
+
+1537319687 /home/profesor/Descargas/clase7_final/producto.h
+
+1537484548 source:/home/profesor/Descargas/clase10_init/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"producto.h"
+
+1536878357 /home/profesor/Descargas/clase10_init/utn.h
+
+1537484256 /home/profesor/Descargas/clase10_init/producto.h
+
+1537491816 source:/home/profesor/Descargas/clase10_init/producto.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"producto.h"
+
+1536881187 source:/home/profesor/Descargas/clase10_init/utn.c
+	<stdio_ext.h>
+	<string.h>
+	<stdlib.h>
+	<ctype.h>
+	"utn.h"
+
+1537492188 source:/home/profesor/Descargas/clase10_init/pantalla.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"pantalla.h"
+
+1537492167 /home/profesor/Descargas/clase10_init/pantalla.h
+

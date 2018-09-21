@@ -1,0 +1,70 @@
+# depslib dependency file v1.0
+1536190708 source:/home/profesor/Ernesto/LABO1/Clase04/clase_05/main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+
+1535674282 /home/profesor/Ernesto/LABO1/Clase04/clase_05/utn.h
+
+1536188598 source:/home/profesor/Ernesto/LABO1/Clase04/clase_05/utn.c
+	<stdio_ext.h>
+	<stdlib.h>
+	"utn.h"
+
+1536282071 source:/home/profesor/Documentos/davilas/CLASE_05/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"array.h"
+
+1536272239 /home/profesor/Documentos/davilas/CLASE_05/utn.h
+
+1536188598 source:/home/profesor/Documentos/davilas/CLASE_05/utn.c
+	<stdio_ext.h>
+	<stdlib.h>
+	"utn.h"
+
+1536280658 /home/profesor/Documentos/davilas/CLASE_05/array.h
+
+1536281255 source:/home/profesor/Documentos/davilas/CLASE_05/array.c
+	<stdio.h>
+	<stdlib.h>
+	"array.h"
+
+1536706472 source:/home/profesor/Descargas/CLASE_07/array.c
+	<stdio.h>
+	<stdlib.h>
+	"array.h"
+
+1536283120 /home/profesor/Descargas/CLASE_07/array.h
+
+1536800328 source:/home/profesor/Descargas/CLASE_07/utn.c
+	<stdio_ext.h>
+	<string.h>
+	<stdlib.h>
+	"utn.h"
+
+1536791606 /home/profesor/Descargas/CLASE_07/utn.h
+
+1536799494 source:/home/profesor/Descargas/CLASE_07/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1536886313 source:/home/profesor/Descargas/clase7_final/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1536878357 /home/profesor/Descargas/clase7_final/utn.h
+
+1536881187 source:/home/profesor/Descargas/clase7_final/utn.c
+	<stdio_ext.h>
+	<string.h>
+	<stdlib.h>
+	<ctype.h>
+	"utn.h"
+
