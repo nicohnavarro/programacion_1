@@ -31,10 +31,6 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="UTN.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="UTN.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -42,6 +38,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="pantalla.h" />
+		<Unit filename="utn.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="utn.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

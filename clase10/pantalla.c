@@ -74,3 +74,48 @@ static int generarID(void)
     id++;
     return id;
 }
+
+int buscarPorId(Pantalla* pp,int length,int idPantalla)
+{
+    int i;
+    int ret=0;
+    for (i=0;i<length;i++)
+    {
+        if(pp[i].isEmpty==0 && pp[i].id==idPantalla)
+        {
+            ret=i;
+            break;
+        }
+    }
+    return ret;
+}
+
+int modificarPantalla(Pantalla* pp,int length,int index)
+{
+    int auxTipo;
+    char auxNombre[32];
+    char auxDireccion[35];
+    int retorno=1;
+    if (index<length)
+    {
+        __fpurge(stdin);
+        utn_getLetras(auxNombre,32,1,"Ingrese nuevo nombre: ","error");
+        utn_getLetras(auxDireccion,35,1,"Ingrese nueva direccion: ","Error");
+        utn_getEntero(&auxTipo,2,"Ingrese el nuevo tipo de pantalla: [LCD]=1\t [led]=0","Error",-1,2);
+
+        strncpy(pp[index].nombre,auxNombre,32);
+        strncpy(pp[index].direccion,auxDireccion,35);
+        pp[index].tipo=auxTipo;
+
+        printf("MODIFICADO el ID: [%d]",pp[index].id);
+        retorno=0;
+     }
+    return retorno;
+}
+
+int darBajaPantalla(Pantalla*pp,int length,int index)
+{
+    pp[index].isEmpty=1;
+    printf("Dado de baja el la Pantalla de ID: [%d]",pp[index].id);
+    return 0;
+}

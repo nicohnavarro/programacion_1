@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1537487416 source:/home/alumno/nicolasNavarro/programacion_1/clase10/main.c
+1537492027 source:/home/alumno/nicolasNavarro/programacion_1/clase10/main.c
 	"utn.h"
 	<stdio_ext.h>
 	<stdlib.h>
@@ -15,7 +15,7 @@
 
 1537480192 /home/alumno/nicolasNavarro/programacion_1/clase10/UTN.h
 
-1537487523 source:/home/alumno/nicolasNavarro/programacion_1/clase10/pantalla.c
+1537492228 source:/home/alumno/nicolasNavarro/programacion_1/clase10/pantalla.c
 	"utn.h"
 	"pantalla.h"
 	<string.h>
@@ -23,7 +23,7 @@
 	<stdlib.h>
 	<stdio_ext.h>
 
-1537487165 /home/alumno/nicolasNavarro/programacion_1/clase10/pantalla.h
+1537492027 /home/alumno/nicolasNavarro/programacion_1/clase10/pantalla.h
 
 1537485915 /home/alumno/nicolasNavarro/programacion_1/clase10/utn.h
 

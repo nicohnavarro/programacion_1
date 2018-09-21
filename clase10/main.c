@@ -11,12 +11,12 @@ PANTALLA
 -tipo
 -nombre
 -direccion
+-precio
 -isEmpty
 
 CONTRATACION
 -Id
 -video
--precio
 -dias
 -IdPantalla
 -CuitCliente
@@ -27,9 +27,10 @@ int main()
 {
     Pantalla spantalla[QTY_PANTALLAS];
     int opcion;
+    int index;
     do
     {
-        utn_getEntero(&opcion,2,"/*Ingrese una opcion\nAlta(1)\tBaja(2)\tModificacion(3)\nSALIR(4)","Error",1,4);
+        utn_getEntero(&opcion,2,"/*Ingrese una opcion\nAlta(1)\tModificacion(2)\tBaja(3)\nSALIR(4)","Error",1,4);
         arrayInit(spantalla,QTY_PANTALLAS,1);
         switch(opcion)
         {
@@ -38,7 +39,15 @@ int main()
                 altaPantalla(spantalla,getIndiceVacio(spantalla,QTY_PANTALLAS),QTY_PANTALLAS);
                 break;
             case 2:
-                printf("Dar de baja a una Pantalla. ");
+                printf("Modificar a una Pantalla. ");
+                utn_getEntero(&index,2,"Ingrese el ID de la pantalla.","Error",0,100000);
+                modificarPantalla(spantalla,QTY_PANTALLAS,buscarPorId(spantalla,QTY_PANTALLAS,index));
+                break;
+            case 3:
+                printf("Dar de baja a una Pantalla");
+                utn_getEntero(&index,2,"Ingrese el ID de la pantalla.","Error",0,100000);
+                darBajaPantalla(spantalla,QTY_PANTALLAS,index);
+                break;
         }
     }while(opcion!=4);
 
