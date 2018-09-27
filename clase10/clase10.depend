@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1537492027 source:/home/alumno/nicolasNavarro/programacion_1/clase10/main.c
+1538008663 source:/home/alumno/nicolasNavarro/programacion_1/clase10/main.c
 	"utn.h"
 	<stdio_ext.h>
 	<stdlib.h>
 	<string.h>
 	"pantalla.h"
+	"contratacion.h"
 
 1537480165 source:/home/alumno/nicolasNavarro/programacion_1/clase10/UTN.c
 	"UTN.h"
@@ -15,7 +16,7 @@
 
 1537480192 /home/alumno/nicolasNavarro/programacion_1/clase10/UTN.h
 
-1537492228 source:/home/alumno/nicolasNavarro/programacion_1/clase10/pantalla.c
+1538010852 source:/home/alumno/nicolasNavarro/programacion_1/clase10/pantalla.c
 	"utn.h"
 	"pantalla.h"
 	<string.h>
@@ -23,14 +24,26 @@
 	<stdlib.h>
 	<stdio_ext.h>
 
-1537492027 /home/alumno/nicolasNavarro/programacion_1/clase10/pantalla.h
+1538010852 /home/alumno/nicolasNavarro/programacion_1/clase10/pantalla.h
+	"pantalla.h"
 
-1537485915 /home/alumno/nicolasNavarro/programacion_1/clase10/utn.h
+1537998734 /home/alumno/nicolasNavarro/programacion_1/clase10/utn.h
 
-1537485915 source:/home/alumno/nicolasNavarro/programacion_1/clase10/utn.c
+1537998734 source:/home/alumno/nicolasNavarro/programacion_1/clase10/utn.c
 	<stdio_ext.h>
 	<stdlib.h>
 	<string.h>
 	<time.h>
 	"utn.h"
+
+1538008605 source:/home/alumno/nicolasNavarro/programacion_1/clase10/contratacion.c
+	"utn.h"
+	"pantalla.h"
+	"contratacion.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+
+1538010583 /home/alumno/nicolasNavarro/programacion_1/clase10/contratacion.h
 

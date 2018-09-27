@@ -5,22 +5,23 @@
 #include <time.h>
 #include "utn.h"
 static int getFloat(float*pBuffer);
-int getString(char* bufferString,int limite);
+static int getString(char* bufferString,int limite);
 static int isFloat(char* pBuffer);
 static int getInt(int*pBuffer);
 static int isInt(char *pBuffer);
 static int isLetras(char*pBuffer);
+static int getGiones(char* pBuffer);
 
-int utn_getEntero(int* pEntero,int reintentos,char* msg,char*msgError,int min,int max){
+int utn_getEntero(int* pEntero,int reintentos,char* msg,char*msgError,int minimo,int maximo){
     int retorno = -1;
     int buffer;
 
-    if(pEntero!=NULL&& msg !=NULL && msgError!=NULL && min<= max && reintentos>=0){
+    if(pEntero!=NULL&& msg !=NULL && msgError!=NULL && minimo<= maximo && reintentos>=0){
         do
         {
             reintentos--;
             printf("\n%s: ",msg);
-            if(getInt(&buffer) == 0 && buffer >= min && buffer<=max){
+            if(getInt(&buffer) == 0 && buffer >= minimo && buffer<=maximo){
                     *pEntero= buffer;
                     retorno = 0;
                     break;
@@ -95,7 +96,7 @@ static int isFloat(char* pBuffer){
     }
     return retorno;
 }
-int getString(char* pBuffer,int limite){
+static int getString(char* pBuffer,int limite){
     char bufferString[4096];
     int retorno =-1;
     if (pBuffer != NULL && limite >0){
@@ -120,6 +121,9 @@ static int getFloat(float*pBuffer){
     }
     return retorno;
 }
+
+
+
 int utn_mostrarArray(int * pArray,int limite){
     int i;
     for (i=0;i<limite;i++){
@@ -285,6 +289,95 @@ int ordenarInsertion(int* pArray,int limite){
     }
     return 0;
 }
+
+int utn_getTelefono(char* pBuffer,int limite,int reintentos,char* msg,char* msgError)
+{
+    int retorno=-1;
+    char buffer[limite];
+    if(pBuffer!=NULL && msg!=NULL && msgError!=NULL && reintentos>=0 && limite>0)
+    {
+            do{
+            reintentos--;
+            printf("\n%s",msg);
+
+            if(getString(buffer,limite)==0 && getGiones(buffer)==0 && (buffer[0]!='-' && strlen(buffer)==9)){
+                strncpy(pBuffer,buffer,limite);
+                retorno=0;
+                break;
+            }else
+                printf("\n%s",msgError);
+        }while(reintentos>=0);
+    }
+    return retorno;
+}
+
+
+static int getGiones(char* pBuffer)
+{
+    int i;
+    int retorno=-1;
+    int contadorDeGuiones=0;
+    do{
+        if(*(pBuffer+i)=='-'){
+            *(pBuffer+i)='-';
+            contadorDeGuiones++;
+            if(contadorDeGuiones==3){
+                break;
+            }
+        }else if(*(pBuffer+i)<48||*(pBuffer+i)>57){
+                break;
+        }
+        i++;
+    }while (i<strlen(pBuffer));
+    if(i==strlen(pBuffer)){
+        retorno=0;
+    }
+    return retorno;
+}
+
+int utn_getCuit(char* pBuffer,int limite, int reintentos,char* msg,char*msgError)
+{
+    int retorno=-1;
+    char buffer[limite];
+    if(pBuffer!=NULL && msg!=NULL && msgError!=NULL && reintentos>=0 && limite>0)
+    {
+            do{
+            reintentos--;
+            printf("\n%s",msg);
+
+            if(getString(buffer,limite)==0 && getGiones(buffer)==0 && buffer[2]=='-' && buffer[11]=='-' && strlen(buffer)==13){
+                strncpy(pBuffer,buffer,limite);
+                retorno=0;
+                break;
+            }else
+                printf("\n%s",msgError);
+        }while(reintentos>=0);
+    }
+    return retorno;
+
+}
+
+int utn_getDni(char* pBuffer,int limite, int reintentos,char* msg,char*msgError)
+{
+    int retorno=-1;
+    char buffer[limite];
+    if(pBuffer!=NULL && msg!=NULL && msgError!=NULL && reintentos>=0 && limite>0)
+    {
+            do{
+            reintentos--;
+            printf("\n%s",msg);
+
+            if(getString(buffer,limite)==0 && isInt(buffer)==0 && strlen(buffer)==8){
+                strncpy(pBuffer,buffer,limite);
+                retorno=0;
+                break;
+            }else
+                printf("\n%s",msgError);
+        }while(reintentos>=0);
+    }
+    return retorno;
+}
+
 /** printPersona(Persona *pBuffer){
     printf("\tNombre\taltura\tedad:\n\n");
     printf("\t%s\t%.2f\t%d",pBuffer->nombre,pBuffer->altura,pBuffer->edad);
@@ -297,7 +390,6 @@ int utn_altaPersona(Persona* pPersona,int reintentos,int lenString,int min,int m
     return 0;
 }*/
 /**int cargaProducto(Producto* pBuffer,int indice){
-
     utn_getLetras(pBuffer[indice].nombre,32,3,"Ingrese el nombre: ","Error");
     printf("\nIngrese la descripcion: ");
     getString(pBuffer[indice].descripcion,128);
@@ -333,7 +425,6 @@ int menuProductos(int*opcion){
         *opcion=aux;
     return 0;
 }
-
 int imprimirArray(Producto* pBuffer,int limite)
 {
     int i;
