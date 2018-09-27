@@ -47,7 +47,7 @@
 
 1538010583 /home/alumno/nicolasNavarro/programacion_1/clase10/contratacion.h
 
-1538024422 source:/home/nicolas/UTN/programacion_1/clase10/contratacion.c
+1538072459 source:/home/nicolas/UTN/programacion_1/clase10/contratacion.c
 	"utn.h"
 	"pantalla.h"
 	"contratacion.h"
@@ -61,7 +61,7 @@
 1538016531 /home/nicolas/UTN/programacion_1/clase10/pantalla.h
 	"pantalla.h"
 
-1538024114 /home/nicolas/UTN/programacion_1/clase10/contratacion.h
+1538072410 /home/nicolas/UTN/programacion_1/clase10/contratacion.h
 
 1538023647 source:/home/nicolas/UTN/programacion_1/clase10/pantalla.c
 	"utn.h"
@@ -78,7 +78,7 @@
 	<time.h>
 	"utn.h"
 
-1538024114 source:/home/nicolas/UTN/programacion_1/clase10/main.c
+1538072515 source:/home/nicolas/UTN/programacion_1/clase10/main.c
 	"utn.h"
 	<stdio_ext.h>
 	<stdlib.h>

@@ -73,17 +73,19 @@ int altaContratacion(Contratacion* contra,int lengthContra,int indexContra,int i
     return retorno;
 }
 
-int printContratacion(Contratacion*contra,int length)
+int printContratacion(Contratacion*contra,int lengthContra,Pantalla* pp,int lengthPantalla)
 {
     int retorno=-1;
     int i;
-    if(contra!=NULL && length>0)
+    int pos;
+    if(contra!=NULL && lengthContra>0)
     {
-        for(i=0;i<length;i++)
+        for(i=0;i<lengthContra;i++)
         {
             if(contra[i].isEmpty==0)
             {
-                printf("-ID[%d]-DIAS[%d]-IDPANTALLA[%d]-VIDEO[%s]-CLIENTE:[%s]\n",contra[i].id,contra[i].dias,contra[i].IdPantalla,contra[i].video,contra[i].CuitCliente);
+                pos=buscarPorId(pp,lengthPantalla,contra[i].IdPantalla);
+                printf("-NOMBRE[%s]-VIDEO[%s]-DIAS[%d]-CLIENTE:[%s]\n",pp[pos].nombre,contra[i].video,contra[i].dias,contra[i].CuitCliente);
                 retorno=0;
             }
         }
@@ -166,6 +168,23 @@ int cancelarContratacion(Contratacion* contra,int lengthContratacion,int idPanta
             printf("Dado de Baja la Publicacion ID[%d]",contra[i].id);
             retorno=0;
             break;
+        }
+    }
+    return retorno;
+}
+
+int consultarFacturacion(Contratacion* contra,int lengthContratacion,char* cuit,Pantalla*pp,int lengthPantalla)
+{
+    int retorno=-1;
+    int pos;
+    int i;
+    for(i=0;i<lengthContratacion;i++)
+    {
+        if(strcmp(contra[i].CuitCliente,cuit)==0)
+        {
+            pos=buscarPorId(pp,lengthPantalla,contra[i].IdPantalla);
+            printf("-$[%.2f]-Contratacion-ID[%d]\n",pp[pos].precio,contra[i].id);
+            retorno=0;
         }
     }
     return retorno;

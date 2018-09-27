@@ -35,7 +35,7 @@ int main()
     setContratacion(scontratacion,1,"20-11017502-2","Video1.mp4",7,3);
     do
     {
-        utn_getEntero(&opcion,2,"/*Ingrese una opcion\n1-ALTA PANTALLA\n2-MODIFICACION PANTALLA\n3-BAJA PANTALLA\n\n4-CONTRATAR PUBLICIDAD\n5-MODIFICAR PUBLICACION\n6-CANCELAR CONTRATACION \n\n7-CONSULTA FACTURACION \n\n8-LISTAR CONTRATACIONES \n9-LISTAR PANTALLAS\n\n10-INFORMES\n\n11-SALIR\n","Error",1,11);
+        utn_getEntero(&opcion,2,"/*Ingrese una opcion\n1-ALTA PANTALLA\n2-MODIFICACION PANTALLA\n3-BAJA PANTALLA\n\n4-CONTRATAR PUBLICIDAD\n5-MODIFICAR CONTRATACION\n6-CANCELAR CONTRATACION \n\n7-CONSULTA FACTURACION \n\n8-LISTAR CONTRATACIONES \n9-LISTAR PANTALLAS\n\n10-INFORMES\n\n11-SALIR\n","Error",1,11);
         switch(opcion)
         {
             case 1:
@@ -62,7 +62,6 @@ int main()
                 utn_getEntero(&idPantalla,2,"Dame id de la pantalla","Error",0,QTY_PANTALLAS);
                 indexContra=getIndiceVacioContra(scontratacion,QTY_CONTRATACION);
                 altaContratacion(scontratacion,QTY_CONTRATACION,indexContra,idPantalla);
-                printContratacion(scontratacion,QTY_CONTRATACION);
                 break;
             case 5:
                 utn_getCuit(cuitCliente,14,2,"Ingrese Cuit [XX-XXXXXXXX-X]:","Error");
@@ -78,10 +77,12 @@ int main()
                 cancelarContratacion(scontratacion,QTY_CONTRATACION,idPantalla);
                 break;
             case 7:
+                utn_getCuit(cuitCliente,14,2,"Ingrese Cuit [XX-XXXXXXXX-X]:","Error");
+                consultarFacturacion(scontratacion,QTY_CONTRATACION,cuitCliente,spantalla,QTY_PANTALLAS);
                 break;
             case 8:
                 printf("Listar Contrataciones.\n");
-                printContratacion(scontratacion,QTY_CONTRATACION);
+                printContratacion(scontratacion,QTY_CONTRATACION,spantalla,QTY_PANTALLAS);
                 break;
             case 9:
                 printf("Listar Pantallas.\n");
