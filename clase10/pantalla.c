@@ -73,8 +73,8 @@ int altaPantalla(Pantalla* pp,int index,int length)
     if (index<length)
     {
         __fpurge(stdin);
-        utn_getLetras(auxNombre,32,1,"Ingrese nombre: ","error");
-        utn_getLetras(auxDireccion,35,1,"Ingrese direccion: ","Error");
+        utn_getString(auxNombre,32,1,"Ingrese nombre: ","error");
+        utn_getString(auxDireccion,35,1,"Ingrese direccion: ","Error");
         utn_getEntero(&auxTipo,2,"Ingrese el tipo de pantalla: [LCD]=1\t [led]=0","Error",0,1);
         utn_getFloat(&auxPrecio,2,"Ingrese precio $ ","error",0,10000);
 
@@ -124,8 +124,8 @@ int modificarPantalla(Pantalla* pp,int length,int index)
     if (index<length)
     {
         __fpurge(stdin);
-        utn_getLetras(auxNombre,32,1,"Ingrese nuevo nombre: ","error");
-        utn_getLetras(auxDireccion,35,1,"Ingrese nueva direccion: ","Error");
+        utn_getString(auxNombre,32,1,"Ingrese nuevo nombre: ","error");
+        utn_getString(auxDireccion,35,1,"Ingrese nueva direccion: ","Error");
         utn_getEntero(&auxTipo,2,"Ingrese el nuevo tipo de pantalla: [LCD]=1\t [led]=0","Error",-1,2);
         utn_getFloat(&auxPrecio,2,"Ingrese nuevo precio $ ","error",0,10000);
 
@@ -169,6 +169,6 @@ int listarPantallas(Pantalla* pp,int length)
 
 int imprimirPantallas(Pantalla*pp,int index)
 {
-    printf("Nombre: %s\tDireccion: %s\tTipo: %d\tPrecio $%.2f\tID[%d]",pp[index].nombre,pp[index].direccion,pp[index].tipo,pp[index].precio,pp[index].id);
+    printf("Nombre: %s\tDireccion: %s\tTipo: %d\tPrecio $%.2f\tID[%d]\n",pp[index].nombre,pp[index].direccion,pp[index].tipo,pp[index].precio,pp[index].id);
     return 0;
 }

@@ -1,3 +1,13 @@
+/** \brief Toma una cadena de caracteres
+ *
+ * \param cadena de caracteres
+ * \param limite
+ * \return todo ok 0, error -1
+ *
+ */
+int utn_getString(char* pBuffer,int limite,int reintentos,char* msg,char*msgError);
+
+
 /** \brief Toma un numero entero por pantalla
  *
  * \param puntero donde guarda el valor

@@ -7,7 +7,7 @@ typedef struct {
     char video[30];
     int dias;
     int IdPantalla;
-    int CuitCliente;
+    char CuitCliente[14];
     int isEmpty;
 }Contratacion;
 
@@ -15,5 +15,6 @@ int arrayInitContra(Contratacion* contra,int length,int valor);
 int getIndiceVacioContra(Contratacion* contra,int length);
 int altaContratacion(Contratacion* contra,int lengthContra,int indexContra,int idPantalla);
 int printContratacion(Contratacion* contra,int length);
-int buscarIdporCuit(Contratacion* contra,int length,int cuit);
+int modificarContratacion(Contratacion* contra,int lengthContratacion,char* cuit,Pantalla* pp,int lengthPantalla);
+int setContratacion(Contratacion* contra,int pos,char*cuit,char*video,int dias,int idPan);
 #endif // CONTRATACION_H_INCLUDED

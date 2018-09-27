@@ -51,16 +51,17 @@ int altaContratacion(Contratacion* contra,int lengthContra,int indexContra,int i
     int retorno=-1;
     char auxVideo[30];
     int auxDias;
-    int auxCuit;
+    char auxCuit[14];
+
 
 
     __fpurge(stdin);
-    utn_getEntero(&auxCuit,2,"Ingrese el Cuit","Error",0,100);
+    utn_getCuit(auxCuit,14,2,"Ingrese CUIT: [XX-XXXXXXXX-X]:","Error");
     utn_getEntero(&auxDias,2,"Ingrese Dias de publicacion","Error",1,30);
-    utn_getLetras(auxVideo,30,2,"Ingrese el video:","Error");
+    utn_getString(auxVideo,30,2,"Ingrese el video:","Error");
 
 
-    contra[indexContra].CuitCliente=auxCuit;
+    strncpy(contra[indexContra].CuitCliente,auxCuit,14);
     strcpy(contra[indexContra].video,auxVideo);
     contra[indexContra].dias=auxDias;
     contra[indexContra].IdPantalla=idPantalla;
@@ -82,7 +83,7 @@ int printContratacion(Contratacion*contra,int length)
         {
             if(contra[i].isEmpty==0)
             {
-                printf("Id[%d]-dias[%d]-video[%s]-IDPANTALLA[%d]-\n",contra[i].id,contra[i].dias,contra[i].video,contra[i].IdPantalla);
+                printf("-ID[%d]\t-DIAS[%d]\t-VIDEO[%s]\t-IDPANTALLA[%d]\n",contra[i].id,contra[i].dias,contra[i].video,contra[i].IdPantalla);
                 retorno=0;
             }
         }
@@ -91,7 +92,7 @@ int printContratacion(Contratacion*contra,int length)
     return retorno;
 }
 
-int modificarContratacion(Contratacion* contra,int lengthContratacion,int cuit,Pantalla* pp,int lengthPantalla)
+int modificarContratacion(Contratacion* contra,int lengthContratacion,char* cuit,Pantalla* pp,int lengthPantalla)
 {
     int i;
     int retorno=-1;
@@ -99,17 +100,28 @@ int modificarContratacion(Contratacion* contra,int lengthContratacion,int cuit,P
     int pos;
     for(i=0;i<lengthContratacion;i++)
     {
-        if(contra[i].CuitCliente==cuit)
+        if(strcmp(contra[i].CuitCliente,cuit)==0)
         {
             idPantalla=contra[i].IdPantalla;
             pos=buscarPorId(pp,lengthPantalla,idPantalla);
             imprimirPantallas(pp,pos);
-
         }
-
     }
+    return retorno;
+}
 
-
-
+int setContratacion(Contratacion* contra,int pos,char*cuit,char*video,int dias,int idPan)
+{
+    int retorno=-1;
+    if(pos<QTY_CONTRATACION)
+    {
+        contra[pos].dias=dias;
+        contra[pos].IdPantalla=idPan;
+        contra[pos].id=generarIDcontra();
+        strncpy(contra[pos].CuitCliente,cuit,14);
+        strncpy(contra[pos].video,video,30);
+        contra[pos].isEmpty=0;
+        retorno=0;
+    }
     return retorno;
 }

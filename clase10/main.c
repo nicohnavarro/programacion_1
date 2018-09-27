@@ -33,16 +33,20 @@ int main()
     int index;
     int idPantalla;
     int indexContra;
-    int cuitCliente;
+    char cuitCliente[14];
     arrayInit(spantalla,QTY_PANTALLAS,1);
     arrayInitContra(scontratacion,QTY_CONTRATACION,1);
-    setPantalla(spantalla,0,1,"panuno","diruno",1200);
-    setPantalla(spantalla,1,1,"pandos","dirdos",1000);
-    setPantalla(spantalla,2,0,"pantre","dirtre",900);
-    setPantalla(spantalla,3,1,"pancua","dircua",1300);
+    setPantalla(spantalla,0,1,"Pantalla 1","Avenida Mitre 220",1200);
+    setPantalla(spantalla,1,1,"Pantalla 2","Belgrano 1200",1000);
+    setPantalla(spantalla,2,0,"Pantalla 3","Las Flores 100",900);
+    setPantalla(spantalla,3,1,"Pantalla 4","Puente Pueyrredon",1300);
+    setContratacion(scontratacion,0,"20-11017502-2","Video1.mp4",14,1);
+    setContratacion(scontratacion,2,"23-11179042-8","Video20.amv",24,0);
+    setContratacion(scontratacion,4,"20-11017502-2","Video4.mp4",5,1);
+    setContratacion(scontratacion,1,"20-11017502-2","Video1.mp4",7,3);
     do
     {
-        utn_getEntero(&opcion,2,"/*Ingrese una opcion\nAlta(1)\tModificacion(2)\tBaja(3)\tContratar una publicidad(4) \tModificar condiciones de publicación(5)\tSALIR(6)\n","Error",1,5);
+        utn_getEntero(&opcion,2,"/*Ingrese una opcion\n1-ALTA PANTALLA\n2-MODIFICACION PANTALLA\n3-BAJA PANTALLA\n4-CONTRATAR PUBLICIDAD\n5-MODIFICAR PUBLICACION\n6-SALIR\n","Error",1,6);
         switch(opcion)
         {
             case 1:
@@ -73,11 +77,11 @@ int main()
                 printContratacion(scontratacion,QTY_CONTRATACION);
                 break;
             case 5:
-                utn_getEntero(&cuitCliente,2,"Ingrese el cuit :","error",0,100);
+                utn_getCuit(cuitCliente,14,2,"Ingrese Cuit [XX-XXXXXXXX-X]:","Error");
+                modificarContratacion(scontratacion,QTY_CONTRATACION,cuitCliente,spantalla,QTY_PANTALLAS);
+                break;
 
         }
     }while(opcion!=6);
-
-
     return 0;
 }

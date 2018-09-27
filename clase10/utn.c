@@ -5,12 +5,32 @@
 #include <time.h>
 #include "utn.h"
 static int getFloat(float*pBuffer);
-static int getString(char* bufferString,int limite);
 static int isFloat(char* pBuffer);
 static int getInt(int*pBuffer);
 static int isInt(char *pBuffer);
 static int isLetras(char*pBuffer);
 static int getGiones(char* pBuffer);
+static int getString(char* bufferString,int limite);
+
+int utn_getString(char* pBuffer,int limite,int reintentos,char* msg,char*msgError)
+{
+    int retorno=-1;
+    char buffer[limite];
+    if(pBuffer!=NULL && limite >0 && reintentos >=0){
+        do{
+            reintentos--;
+            printf("\n%s",msg);
+            if(getString(buffer,limite)==0){
+                strncpy(pBuffer,buffer,limite);
+                retorno=0;
+                break;
+            }else
+                printf("\n%s",msgError);
+        }while(reintentos>=0);
+    }
+    return retorno;
+}
+
 
 int utn_getEntero(int* pEntero,int reintentos,char* msg,char*msgError,int minimo,int maximo){
     int retorno = -1;
