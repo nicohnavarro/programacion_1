@@ -21,4 +21,5 @@ int modificarDiasContratacion(Contratacion*contra,int lengthContratatacion,int p
 int setContratacion(Contratacion* contra,int pos,char*cuit,char*video,int dias,int idPan);
 int cancelarContratacion(Contratacion* contra,int lengthContratacion,int idPantalla);
 int consultarFacturacion(Contratacion* contra,int lengthContratacion,char* cuit,Pantalla*pp,int lengthPantalla);
+int listarClientes(Contratacion* contra,Pantalla* pp,int lengthContra,int lengthPantalla);
 #endif // CONTRATACION_H_INCLUDED

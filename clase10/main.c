@@ -30,7 +30,7 @@ int main()
     setPantalla(spantalla,2,0,"Pantalla 3","Las Flores 100",900);
     setPantalla(spantalla,3,1,"Pantalla 4","Puente Pueyrredon",1300);
     setContratacion(scontratacion,0,"20-11017502-2","Video1.mp4",14,1);
-    setContratacion(scontratacion,2,"23-11179042-8","Video20.amv",24,0);
+    setContratacion(scontratacion,2,"23-11179042-8","Video20.amv",24,2);
     setContratacion(scontratacion,4,"20-11017502-2","Video4.mp4",5,1);
     setContratacion(scontratacion,1,"20-11017502-2","Video1.mp4",7,3);
     do
@@ -56,6 +56,7 @@ int main()
                 printf("Dar de baja a una Pantalla");
                 utn_getEntero(&index,2,"Ingrese el ID de la pantalla.","Error",0,100000);
                 darBajaPantalla(spantalla,QTY_PANTALLAS,index);
+                cancelarContratacion(scontratacion,QTY_CONTRATACION,spantalla[index].id);
                 break;
             case 4:
                 printf("Listar pantallas\n");
@@ -89,6 +90,7 @@ int main()
                 listarPantallas(spantalla,QTY_PANTALLAS);
                 break;
             case 10:
+                listarClientes(scontratacion,spantalla,QTY_CONTRATACION,QTY_PANTALLAS);
                 break;
 
         }

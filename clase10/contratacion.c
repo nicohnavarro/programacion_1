@@ -165,9 +165,9 @@ int cancelarContratacion(Contratacion* contra,int lengthContratacion,int idPanta
         if(contra[i].IdPantalla==idPantalla && contra[i].isEmpty==0)
         {
             contra[i].isEmpty=1;
-            printf("Dado de Baja la Publicacion ID[%d]",contra[i].id);
+            printf("\nDado de Baja la Publicacion ID[%d]",contra[i].id);
             retorno=0;
-            break;
+            //break;
         }
     }
     return retorno;
@@ -185,6 +185,23 @@ int consultarFacturacion(Contratacion* contra,int lengthContratacion,char* cuit,
             pos=buscarPorId(pp,lengthPantalla,contra[i].IdPantalla);
             printf("-$[%.2f]-Contratacion-ID[%d]\n",pp[pos].precio,contra[i].id);
             retorno=0;
+        }
+    }
+    return retorno;
+}
+
+int listarClientes(Contratacion* contra,Pantalla* pp,int lengthContra,int lengthPantalla)
+{
+    int retorno=-1;
+    int i;
+    for (i=0;i<lengthContra;i++)
+    {
+        if(contra[i].isEmpty==0)
+        {
+            printf("El empleado de CUIT[%s]\n",contra[i].CuitCliente);
+            modificarContratacion(contra,QTY_CONTRATACION,contra[i].CuitCliente,pp,QTY_PANTALLAS);
+            retorno=0;
+
         }
     }
     return retorno;
