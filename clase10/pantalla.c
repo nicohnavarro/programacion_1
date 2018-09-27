@@ -169,6 +169,6 @@ int listarPantallas(Pantalla* pp,int length)
 
 int imprimirPantallas(Pantalla*pp,int index)
 {
-    printf("Nombre: %s\tDireccion: %s\tTipo: %d\tPrecio $%.2f\tID[%d]\n",pp[index].nombre,pp[index].direccion,pp[index].tipo,pp[index].precio,pp[index].id);
+    printf("Id[%d]-Tipo[%d]-Nombre[%s]-Direccion[%s]-Precio [%.2f]\n",pp[index].id,pp[index].tipo,pp[index].nombre,pp[index].direccion,pp[index].precio);
     return 0;
 }

@@ -6,24 +6,11 @@
 #include"contratacion.h"
 #define QTY_PANTALLAS 5
 #define QTY_CONTRATACION 10
-
 /*
-PANTALLA
--Id
--tipo
--nombre
--direccion
--precio
--isEmpty
-
-CONTRATACION
--Id
--video
--dias
--IdPantalla
--CuitCliente
--isEmpty
-
+PREGUNTAR
+1)COMO HAGO PARA MODIFICAR CUANDO TENGO 2 O MAS PANTALLAS EN LA CONTRATACION
+2)IDEM CANCELACION
+3)CUANDO MUESTRA LAS PANTALLAS DEL CLIENTE TENGO QUE DECIR CUALES ESTAN DADAS DE BAJA
 */
 int main()
 {
@@ -34,6 +21,8 @@ int main()
     int idPantalla;
     int indexContra;
     char cuitCliente[14];
+    int pos;
+
     arrayInit(spantalla,QTY_PANTALLAS,1);
     arrayInitContra(scontratacion,QTY_CONTRATACION,1);
     setPantalla(spantalla,0,1,"Pantalla 1","Avenida Mitre 220",1200);
@@ -46,7 +35,7 @@ int main()
     setContratacion(scontratacion,1,"20-11017502-2","Video1.mp4",7,3);
     do
     {
-        utn_getEntero(&opcion,2,"/*Ingrese una opcion\n1-ALTA PANTALLA\n2-MODIFICACION PANTALLA\n3-BAJA PANTALLA\n4-CONTRATAR PUBLICIDAD\n5-MODIFICAR PUBLICACION\n6-SALIR\n","Error",1,6);
+        utn_getEntero(&opcion,2,"/*Ingrese una opcion\n1-ALTA PANTALLA\n2-MODIFICACION PANTALLA\n3-BAJA PANTALLA\n\n4-CONTRATAR PUBLICIDAD\n5-MODIFICAR PUBLICACION\n6-CANCELAR CONTRATACION \n\n7-CONSULTA FACTURACION \n\n8-LISTAR CONTRATACIONES \n9-LISTAR PANTALLAS\n\n10-INFORMES\n\n11-SALIR\n","Error",1,11);
         switch(opcion)
         {
             case 1:
@@ -70,7 +59,6 @@ int main()
                 break;
             case 4:
                 printf("Listar pantallas\n");
-                listarPantallas(spantalla,QTY_PANTALLAS);
                 utn_getEntero(&idPantalla,2,"Dame id de la pantalla","Error",0,QTY_PANTALLAS);
                 indexContra=getIndiceVacioContra(scontratacion,QTY_CONTRATACION);
                 altaContratacion(scontratacion,QTY_CONTRATACION,indexContra,idPantalla);
@@ -79,9 +67,30 @@ int main()
             case 5:
                 utn_getCuit(cuitCliente,14,2,"Ingrese Cuit [XX-XXXXXXXX-X]:","Error");
                 modificarContratacion(scontratacion,QTY_CONTRATACION,cuitCliente,spantalla,QTY_PANTALLAS);
+                utn_getEntero(&idPantalla,2,"Ingrese ID de la Pantalla a Modificar: ","Error",0,QTY_PANTALLAS);
+                pos=buscarPosicionPorCuit(scontratacion,QTY_CONTRATACION,cuitCliente,idPantalla);
+                modificarDiasContratacion(scontratacion,QTY_CONTRATACION,pos);
+                break;
+            case 6:
+                utn_getCuit(cuitCliente,14,2,"Ingrese Cuit [XX-XXXXXXXX-X]:","Error");
+                modificarContratacion(scontratacion,QTY_CONTRATACION,cuitCliente,spantalla,QTY_PANTALLAS);
+                utn_getEntero(&idPantalla,2,"Ingrese ID de la Pantalla a Cancelar: ","Error",0,QTY_PANTALLAS);
+                cancelarContratacion(scontratacion,QTY_CONTRATACION,idPantalla);
+                break;
+            case 7:
+                break;
+            case 8:
+                printf("Listar Contrataciones.\n");
+                printContratacion(scontratacion,QTY_CONTRATACION);
+                break;
+            case 9:
+                printf("Listar Pantallas.\n");
+                listarPantallas(spantalla,QTY_PANTALLAS);
+                break;
+            case 10:
                 break;
 
         }
-    }while(opcion!=6);
+    }while(opcion!=11);
     return 0;
 }

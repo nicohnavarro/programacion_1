@@ -16,5 +16,8 @@ int getIndiceVacioContra(Contratacion* contra,int length);
 int altaContratacion(Contratacion* contra,int lengthContra,int indexContra,int idPantalla);
 int printContratacion(Contratacion* contra,int length);
 int modificarContratacion(Contratacion* contra,int lengthContratacion,char* cuit,Pantalla* pp,int lengthPantalla);
+int buscarPosicionPorCuit(Contratacion*contra,int lengthContratacion,char*cuit,int idPantalla);
+int modificarDiasContratacion(Contratacion*contra,int lengthContratatacion,int pos);
 int setContratacion(Contratacion* contra,int pos,char*cuit,char*video,int dias,int idPan);
+int cancelarContratacion(Contratacion* contra,int lengthContratacion,int idPantalla);
 #endif // CONTRATACION_H_INCLUDED
