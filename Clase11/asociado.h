@@ -1,10 +1,16 @@
 #ifndef ASOCIADO_H_INCLUDED
 #define ASOCIADO_H_INCLUDED
+#include "asociado.h"
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdio_ext.h>
+#include"utn.h"
 #define QTY_ASOCIADOS 6
 typedef struct{
     int id;
-    char name[50];
-    char lastName[50];
+    char name[51];
+    char lastName[51];
     char dni[8];
     int age;
     int isEmpty;

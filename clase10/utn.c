@@ -32,6 +32,7 @@ int utn_getString(char* pBuffer,int limite,int reintentos,char* msg,char*msgErro
 }
 
 
+
 int utn_getEntero(int* pEntero,int reintentos,char* msg,char*msgError,int minimo,int maximo){
     int retorno = -1;
     int buffer;
@@ -398,91 +399,33 @@ int utn_getDni(char* pBuffer,int limite, int reintentos,char* msg,char*msgError)
     return retorno;
 }
 
-/** printPersona(Persona *pBuffer){
-    printf("\tNombre\taltura\tedad:\n\n");
-    printf("\t%s\t%.2f\t%d",pBuffer->nombre,pBuffer->altura,pBuffer->edad);
-    return 0;
-}
-int utn_altaPersona(Persona* pPersona,int reintentos,int lenString,int min,int max){
-    utn_getLetras(&pPersona->nombre,lenString,reintentos,"Ingrese el nombre : ","\n***ERROR INTENTE NUEVAMENTE***");
-    utn_getEntero(&pPersona->edad,reintentos,"Ingrese la edad: ","Error intente nuevamente : ",min,max);
-    utn_getFloat(&pPersona->altura,reintentos,"Ingrese su altura: ","Error amiguito: ",0,3);
-    return 0;
-}*/
-/**int cargaProducto(Producto* pBuffer,int indice){
-    utn_getLetras(pBuffer[indice].nombre,32,3,"Ingrese el nombre: ","Error");
-    printf("\nIngrese la descripcion: ");
-    getString(pBuffer[indice].descripcion,128);
-    utn_getFloat(&pBuffer[indice].precio,3,"Ingrese el precio: ","ERROR : ",0,99999);
-    pBuffer[indice].isEmpy=0;
-    pBuffer[indice].ID=obtenerID();
-    return 0;
-}
-int buscarIndiceVacio(Producto* pBuffer,int limite,int*indice){
-    int i;
-    int retorno=-1;
-    for(i=0;i<limite;i++){
-        if(pBuffer[i].isEmpy==1){
-            *indice=i;
-            retorno=0;
-            break;
-        }
-    }
-    return retorno;
-}
-int menuProductos(int*opcion){
-    int aux;
-        system("clear");
-        printf("1- Cargar un Producto\n");
-        printf("2- Imprimir lista de productos \n");
-        printf("3- Editar Producto\n");
-        printf("4- Borrar producto \n");
-        printf("5- Salir\n");
-        while(scanf("%d",&aux)==0||aux<1||aux>5){
-            __fpurge(stdin);
-            printf("Error ingrese una opcion valida\n");
-        }
-        *opcion=aux;
-    return 0;
-}
-int imprimirArray(Producto* pBuffer,int limite)
+int ordenarBurbujeoMejorado(Estructura* array,int limite, int orden)
 {
+    int retorno = -1;
     int i;
-    system("clear");
-    for(i=0;i<limite;i++){
-        if(pBuffer[i].isEmpy==0){
-            printf("\nID: %d",pBuffer[i].ID);
-            printf("\tNombre: %s",pBuffer[i].nombre);
-            printf("\tDescripcion: %s",pBuffer[i].descripcion);
-            printf("\tPrecio: %.2f",pBuffer[i].precio);
-        }
-    }
-    return 0;
-}
-int obtenerID(){
-    static int ID=0;
-    return ID++;
-}
-int busquedaPorID(Producto* pBuffer,int limite,int ID,int* indiceID){
-    int i;
-    int retorno=-1;
-    for (i=0;i<limite;i++){
-        if(pBuffer[i].ID==ID){
-            *indiceID=i;
-            retorno=0;
-            break;
-        }
+    int flagSwap;
+    Estructura auxiliarEstructura;
+
+    if(limite > 0 && array != NULL)
+    {
+        do
+        {
+            flagSwap = 0;
+            for(i=0;i<limite-1;i++)
+            {
+                if(!array[i].isEmpty && !array[i+1].isEmpty)
+                {
+                    if((strcmp(array[i].campo,array[i+1].campo) > 0 && orden) || (strcmp(array[i].campo,array[i+1].campo) < 0 && !orden)) //******
+                    {
+                        auxiliarEstructura = array[i];
+                        array[i] = array[i+1];
+                        array[i+1] = auxiliarEstructura;
+                        flagSwap = 1;
+                        retorno=0;
+                    }
+                }
+            }
+        }while(flagSwap);
     }
     return retorno;
 }
-int modificarProductoPorIndice(Producto* pBuffer,int indice){
-    utn_getLetras(pBuffer[indice].nombre,32,3,"Ingrese el nombre: ","Error");
-    utn_getFloat(&pBuffer[indice].precio,3,"Ingrese el precio: ","ERROR : ",0,99999);
-    pBuffer[indice].isEmpy=0;
-    return 0;
-}
-int borrarPorID(Producto* pBuffer,int indice){
-    pBuffer[indice].isEmpy=1;
-    return 0;
-}
-*/

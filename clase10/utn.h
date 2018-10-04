@@ -181,3 +181,13 @@ int utn_getCuit(char* pbuffer,int limite, int reintentos,char* msg,char*msgError
  *
  */
 int utn_getDni(char* pBuffer,int limite, int reintentos,char* msg,char*msgError);
+
+/** \brief Ordena array de Estructuras
+ *
+ * \param Array de Estructura
+ * \param limite del Array
+  * \param orden (1)Ascendente (0)Descendente
+ * \return 0 Ok || (-1) Error
+ *
+ */
+int ordenarBurbujeoMejorado(Estructura* array,int limite, int orden);

@@ -1,9 +1,9 @@
-//#include "utn.h"
+#include "utn.h"
 #include <stdio_ext.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 #include <time.h>
-#include "utn.h"
 static int getFloat(float*pBuffer);
 static int isFloat(char* pBuffer);
 static int getInt(int*pBuffer);
@@ -119,13 +119,16 @@ static int isFloat(char* pBuffer){
 static int getString(char* pBuffer,int limite){
     char bufferString[4096];
     int retorno =-1;
-    if (pBuffer != NULL && limite >0){
+    if (pBuffer != NULL && limite >0)
+        {
         __fpurge(stdin);
         fgets(bufferString,sizeof(bufferString),stdin);
-        if (bufferString[strlen(bufferString)-1]=='\n'){
+        if (bufferString[strlen(bufferString)-1]=='\n')
+        {
             bufferString[strlen(bufferString)-1]='\0';
         }
-        if(strlen(bufferString)<= limite){
+        if(strlen(bufferString)<= limite)
+        {
             strncpy(pBuffer,bufferString,limite);
             retorno=0;
         }
@@ -398,93 +401,56 @@ int utn_getDni(char* pBuffer,int limite, int reintentos,char* msg,char*msgError)
     return retorno;
 }
 
-/** printPersona(Persona *pBuffer){
-    printf("\tNombre\taltura\tedad:\n\n");
-    printf("\t%s\t%.2f\t%d",pBuffer->nombre,pBuffer->altura,pBuffer->edad);
-    return 0;
-}
-int utn_altaPersona(Persona* pPersona,int reintentos,int lenString,int min,int max){
-    utn_getLetras(&pPersona->nombre,lenString,reintentos,"Ingrese el nombre : ","\n***ERROR INTENTE NUEVAMENTE***");
-    utn_getEntero(&pPersona->edad,reintentos,"Ingrese la edad: ","Error intente nuevamente : ",min,max);
-    utn_getFloat(&pPersona->altura,reintentos,"Ingrese su altura: ","Error amiguito: ",0,3);
-    return 0;
-}*/
-/**int cargaProducto(Producto* pBuffer,int indice){
-    utn_getLetras(pBuffer[indice].nombre,32,3,"Ingrese el nombre: ","Error");
-    printf("\nIngrese la descripcion: ");
-    getString(pBuffer[indice].descripcion,128);
-    utn_getFloat(&pBuffer[indice].precio,3,"Ingrese el precio: ","ERROR : ",0,99999);
-    pBuffer[indice].isEmpy=0;
-    pBuffer[indice].ID=obtenerID();
-    return 0;
-}
-int buscarIndiceVacio(Producto* pBuffer,int limite,int*indice){
-    int i;
-    int retorno=-1;
-    for(i=0;i<limite;i++){
-        if(pBuffer[i].isEmpy==1){
-            *indice=i;
-            retorno=0;
-            break;
-        }
-    }
-    return retorno;
-}
-int menuProductos(int*opcion){
-    int aux;
-        system("clear");
-        printf("1- Cargar un Producto\n");
-        printf("2- Imprimir lista de productos \n");
-        printf("3- Editar Producto\n");
-        printf("4- Borrar producto \n");
-        printf("5- Salir\n");
-        while(scanf("%d",&aux)==0||aux<1||aux>5){
-            __fpurge(stdin);
-            printf("Error ingrese una opcion valida\n");
-        }
-        *opcion=aux;
-    return 0;
-}
-int imprimirArray(Producto* pBuffer,int limite)
+int getStringLetras(char mensaje[],char input[])
 {
-    int i;
-    system("clear");
-    for(i=0;i<limite;i++){
-        if(pBuffer[i].isEmpy==0){
-            printf("\nID: %d",pBuffer[i].ID);
-            printf("\tNombre: %s",pBuffer[i].nombre);
-            printf("\tDescripcion: %s",pBuffer[i].descripcion);
-            printf("\tPrecio: %.2f",pBuffer[i].precio);
-        }
+    char aux[256];
+    getStringNew(mensaje,aux);
+    if(esSoloLetras(aux))
+    {
+        strcpy(input,aux);
+        return 1;
     }
-    return 0;
-}
-int obtenerID(){
-    static int ID=0;
-    return ID++;
-}
-int busquedaPorID(Producto* pBuffer,int limite,int ID,int* indiceID){
-    int i;
-    int retorno=-1;
-    for (i=0;i<limite;i++){
-        if(pBuffer[i].ID==ID){
-            *indiceID=i;
-            retorno=0;
-            break;
-        }
-    }
-    return retorno;
-}
-int modificarProductoPorIndice(Producto* pBuffer,int indice){
-    utn_getLetras(pBuffer[indice].nombre,32,3,"Ingrese el nombre: ","Error");
-    utn_getFloat(&pBuffer[indice].precio,3,"Ingrese el precio: ","ERROR : ",0,99999);
-    pBuffer[indice].isEmpy=0;
-    return 0;
-}
-int borrarPorID(Producto* pBuffer,int indice){
-    pBuffer[indice].isEmpy=1;
     return 0;
 }
 
-#endif // UTN_C_INCLUDED
-*/
+
+void getStringNew(char mensaje[],char input[])
+{
+    printf("%s",mensaje);
+    clearStdin();
+    scanf ("%[^\n]s", input);
+}
+
+int esSoloLetras(char str[])
+{
+   int i=0;
+   while(str[i] != '\0')
+   {
+       if((str[i] != ' ') && (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z'))
+           return 0;
+       i++;
+   }
+   return 1;
+}
+
+/**
+ * \brief Limpia el stdin, similar a fflush
+ * \param -
+ * \return -
+ *
+ */
+void clearStdin(void)
+{
+    setbuf(stdin,NULL);
+}
+
+/**
+ * \brief Hace un clear, similar al system("clear")
+ * \param -
+ * \return -
+ *
+ */
+void clearScreen(void)
+{
+    system("clear"); //system("cls");
+}

@@ -72,13 +72,14 @@ int altaPantalla(Pantalla* pp,int index,int length)
     int retorno=-1;
     if (index<length)
     {
-        __fpurge(stdin);
+        //__fpurge(stdin);
+        utn_getCuit(auxNombre,13,2,"CUIT?","EERoR");
         utn_getString(auxNombre,32,1,"Ingrese nombre: ","error");
         utn_getString(auxDireccion,35,1,"Ingrese direccion: ","Error");
         utn_getEntero(&auxTipo,2,"Ingrese el tipo de pantalla: [LCD]=1\t [led]=0","Error",0,1);
         utn_getFloat(&auxPrecio,2,"Ingrese precio $ ","error",0,10000);
 
-        strncpy(pp[index].nombre,auxNombre,32);
+        strncpy(pp[index].nombre,auxNombre,13);
         strncpy(pp[index].direccion,auxDireccion,35);
         pp[index].tipo=auxTipo;
         pp[index].precio=auxPrecio;

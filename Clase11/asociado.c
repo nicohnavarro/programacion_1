@@ -1,8 +1,9 @@
-#include"asociado.h"
-#include<string.h>
+#include "asociado.h"
+#include <strings.h>
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include<stdio_ext.h>
+#include <stdio_ext.h>
 #include"utn.h"
 
 static int asociado_generarId(void);
@@ -50,7 +51,7 @@ int asociado_getFreePlace(Asociado* aso,int lengthAsociado)
     {
         for(i=0;i<lengthAsociado;i++)
         {
-            if(aso[i].isEmpty==0)
+            if(aso[i].isEmpty==1)
             {
                 ret=i;
                 break;
@@ -62,19 +63,41 @@ int asociado_getFreePlace(Asociado* aso,int lengthAsociado)
 
 int asociado_alta(Asociado* aso,int lengthAsociado,int index)
 {
+    clearStdin();
     int ret=-1;
-    int auxAge;
+    int auxAge=23;
     char auxName[30];
     char auxLastName[30];
     char auxDni[8];
-    __fpurge(stdin);
-    int largo;
 
-    if(aso!=NULL && lengthAsociado>0)
+    if(lengthAsociado>index)
     {
-        if(utn_getLetras(auxName,30,2,"INGRESE NOMBRE: ","ERROR DE NOMBRE")==0)
+        __fpurge(stdin);
+        utn_getDni(auxDni,8,1,"INGRESE DNI: ","ERROR DE DNI");
+        //utn_getString(auxName,30,2,"INGRESE NOMBRE: ","ERROR DE NOMBRE");
+        utn_getLetras(auxName,30,2,"INGRESE NOMBRE: ","ERROR DE NOMBRE");
+        //utn_getString(auxLastName,30,2,"INGRESE APELLIDO: ","ERROR DE APELLIDO");
+
+        //getStringLetras("Ingrese nombre",auxName);
+
+        printf("hola");
+        strcpy(aso[index].name,auxName);
+        printf("hola1");
+        strcpy(aso[index].lastName,auxLastName);
+        printf("hola2");
+        strcpy(aso[index].dni,auxDni);
+        printf("hola3");
+
+
+        aso[index].age=auxAge;
+        printf("hola4");
+        aso[index].isEmpty=0;
+        aso[index].id=asociado_generarId();
+
+
+        /*if(utn_getString(auxName,30,2,"INGRESE NOMBRE: ","ERROR DE NOMBRE")==0)
         {
-            if(utn_getLetras(auxLastName,30,2,"INGRESE APELLIDO: ","ERROR DE APELLIDO")==0)
+            if(utn_getString(auxLastName,30,2,"INGRESE APELLIDO: ","ERROR DE APELLIDO")==0)
             {
                 if(utn_getDni(auxDni,8,1,"INGRESE DNI: ","ERROR DE DNI")==0)
                 {
@@ -94,7 +117,7 @@ int asociado_alta(Asociado* aso,int lengthAsociado,int index)
                     }
                 }
             }
-        }
+        }*/
     }
     return ret;
 }

@@ -28,3 +28,38 @@
 	<time.h>
 	"utn.h"
 
+1538629008 source:/home/nicolas/UTN/programacion_1/Clase11/asociado.c
+	"asociado.h"
+	<strings.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+	"utn.h"
+
+1538628405 /home/nicolas/UTN/programacion_1/Clase11/asociado.h
+	"asociado.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+	"utn.h"
+
+1538629564 /home/nicolas/UTN/programacion_1/Clase11/utn.h
+
+1538628405 source:/home/nicolas/UTN/programacion_1/Clase11/main.c
+	"asociado.h"
+	<strings.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+	"utn.h"
+
+1538629564 source:/home/nicolas/UTN/programacion_1/Clase11/utn.c
+	"utn.h"
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	<strings.h>
+	<time.h>
+

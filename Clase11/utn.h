@@ -1,3 +1,6 @@
+#ifndef UTN_H_INCLUDED
+#define UTN_H_INCLUDED
+
 /** \brief Toma una cadena de caracteres
  *
  * \param cadena de caracteres
@@ -181,3 +184,14 @@ int utn_getCuit(char* pbuffer,int limite, int reintentos,char* msg,char*msgError
  *
  */
 int utn_getDni(char* pBuffer,int limite, int reintentos,char* msg,char*msgError);
+
+
+
+
+
+int getStringLetras(char mensaje[],char input[]);
+void getStringNew(char mensaje[],char input[]);
+int esSoloLetras(char str[]);
+void clearStdin(void);
+void clearScreen(void);
+#endif
