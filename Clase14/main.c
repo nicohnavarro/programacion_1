@@ -12,9 +12,10 @@
 
 /*
 
-A. Realizar un solo listado de las pantallas ordenadas por los siguientes criterios:
-   o Precio (descendentemente)
-   o Nombre (ascendentemente)
+A.  Realizar un solo listado de las pantallas ordenadas
+    por los siguientes criterios:
+        o Precio (descendentemente)
+        o Nombre (ascendentemente)
 
 B.  Todas las pantallas que su valor es menor o igual a 10.
 
@@ -25,10 +26,12 @@ D.  Todas las pantallas que superan el promedio de los precios.
 E.  Todas las pantallas que no superan el promedio de los precios.
 
 F.  Todas las contrataciones cuya cantidad de dias es menor o igual a 10,
-    indicando nombre de la pantalla contratada, precio unitario, dias y precio total de la contratacion
+    indicando nombre de la pantalla contratada, precio unitario, dias y
+    precio total de la contratacion
 
-G.  Listado de clientes en el cual se indique la cantidad de contrataciones que ha realizado
-    y por que importe. Ordenado por los siguientes criterios:
+G.  Listado de clientes en el cual se indique la cantidad
+    de contrataciones que ha realizado y por que importe.
+    Ordenado por los siguientes criterios:
         o Importe (descendentemente)
         o Cuit (ascendentemente)
 
@@ -49,20 +52,16 @@ int main()
     Pantalla array[QTY];
     Contratacion contrataciones[LEN_CONT];
     int menu;
-    int var;
     int auxiliarId;
-    float promedio;
 
     pantalla_init(array,QTY);
     cont_init(contrataciones,LEN_CONT);
 
     pantalla_altaForzada(array,QTY,"Wilde","Las Flores 50",50,0);
     pantalla_altaForzada(array,QTY,"Avellaneda","Belgrano 250",2000,0);
-    pantalla_altaForzada(array,QTY,"Abellaneda","Belgrano 250",2000,0);
     pantalla_altaForzada(array,QTY,"Bernal","Cerrito 300",3000,0);
     pantalla_altaForzada(array,QTY,"Quilmes","Lavalle 450",1000,1);
-    pantalla_altaForzada(array,QTY,"Berazategui","Mitre 150",5000,1);
-    pantalla_altaForzada(array,QTY,"Barazategui","Mitre 150",5000,1);
+    pantalla_altaForzada(array,QTY,"Berazategui","Mitre 150",3000,1);
 
     cont_altaForzada(contrataciones,LEN_CONT,array,QTY,0,"video.avi","20911911915",100);
     cont_altaForzada(contrataciones,LEN_CONT,array,QTY,0,"video1.avi","20911911915",400);
@@ -71,10 +70,11 @@ int main()
     cont_altaForzada(contrataciones,LEN_CONT,array,QTY,2,"video4.avi","40911911915",500);
     cont_altaForzada(contrataciones,LEN_CONT,array,QTY,2,"video5.avi","40911911915",600);
 
-    informar_ConsultaFacturacion(contrataciones,LEN_CONT,array,QTY,"20911911915");
-    informar_ListarContrataciones(contrataciones,LEN_CONT,array,QTY);
-    informar_ListarCantidadContratacionesImporte(contrataciones,LEN_CONT,array,QTY);
+//    informar_ConsultaFacturacion(contrataciones,LEN_CONT,array,QTY,"20911911915");
+//    informar_ListarContrataciones(contrataciones,LEN_CONT,array,QTY);
+//    informar_ListarCantidadContratacionesImporte(contrataciones,LEN_CONT,array,QTY);
 
+    informar_listadoPantallas(array,QTY);
 
     do
     {
@@ -94,36 +94,21 @@ int main()
                 break;
             case 4:
                 pantalla_mostrar(array,QTY);
-                printf("\n");
                 cont_mostrar(contrataciones,LEN_CONT);
                 break;
             case 5:
-                //cont_ordenarCuit(contrataciones,LEN_CONT,0);
-                //pantalla_ordenar(array,QTY,0);
-                var=informar_ListarPantallas(array,QTY,1);
-                printf("\n[%d]\n",var);
-                pantalla_mostrar(array,QTY);
+                cont_ordenarCuit(contrataciones,LEN_CONT,0);
+                pantalla_ordenar(array,QTY,0);
                 break;
             case 6:
-                //pantalla_mostrarDebug(array,QTY);
-                informarPantallasPorPrecio(array,QTY,10,1);
-                informarClientes(contrataciones,LEN_CONT,array,QTY);
+                pantalla_mostrarDebug(array,QTY);
+
                 break;
             case 7:
-                promedio=informarCalcularPromedio(array,QTY);
-                printf("Precio Promedio: $%.2f\n",promedio);
-                informarPantallasPorPrecio(array,QTY,promedio,1);
-                printf("\n\n");
-                informarPantallasPorPrecio(array,QTY,promedio,0);
-               //cont_alta(contrataciones,LEN_CONT,array,QTY);
+                cont_alta(contrataciones,LEN_CONT,array,QTY);
                 break;
-            case 8:
 
-                var=informarClientes(contrataciones,LEN_CONT,array,QTY);
-                printf("%d",var);
-                var=informarRepeticionCuit(contrataciones,LEN_CONT,"20911911915");
-                printf("%d",var);
-                break;
+
 
 
         }

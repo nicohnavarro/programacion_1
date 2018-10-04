@@ -60,7 +60,7 @@ int pantalla_mostrar(Pantalla* array,int limite)
         for(i=0;i<limite;i++)
         {
             if(!array[i].isEmpty)
-                printf("[RELEASE] - %d - %s - %d - %.2f \n",array[i].idPantalla, array[i].nombre, array[i].isEmpty,array[i].precio);
+                printf("[RELEASE] - %d - %s - %d\n",array[i].idPantalla, array[i].nombre, array[i].isEmpty);
         }
     }
     return retorno;
@@ -262,7 +262,34 @@ int pantalla_altaForzada(Pantalla* array,int limite,char* nombre,char* direccion
 
 
 
-
+int pantalla_ordenarPrecioNombre(Pantalla arrayPantallas[],int limiteArrayPantallas)
+{
+    int retorno = -1;
+    int flagSwap;
+    int i;
+    Pantalla auxiliarPantalla;
+    if(arrayPantallas != NULL && limiteArrayPantallas > 0)
+    {
+        retorno = 0;
+        do
+        {
+            flagSwap = 0;
+            for(i=0;i<limiteArrayPantallas-1;i++)
+            {
+                if( arrayPantallas[i].precio > arrayPantallas[i+1].precio ||
+                    (arrayPantallas[i].precio == arrayPantallas[i+1].precio &&
+                    strcmp(arrayPantallas[i].nombre,arrayPantallas[i+1].nombre)<0))
+                {
+                    flagSwap = 1;
+                    auxiliarPantalla = arrayPantallas[i];
+                    arrayPantallas[i] = arrayPantallas[i+1];
+                    arrayPantallas[i+1] = auxiliarPantalla;
+                }
+            }
+        }while(flagSwap);
+    }
+    return retorno;
+}
 
 
 

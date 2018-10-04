@@ -153,7 +153,7 @@
 
 1525305074 d:\clase12\informar.h
 
-1538602599 source:/home/alumno/nicolasNavarro/programacion_1/CLASE_13/Contratacion.c
+1538507339 source:/home/profesor/Descargas/CLASE_13/Contratacion.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -162,38 +162,14 @@
 	"utn.h"
 	"pantalla.h"
 
-1538602599 /home/alumno/nicolasNavarro/programacion_1/CLASE_13/Contratacion.h
+1525304648 /home/profesor/Descargas/CLASE_13/Contratacion.h
 	"pantalla.h"
 
-1538602599 /home/alumno/nicolasNavarro/programacion_1/CLASE_13/pantalla.h
+1538609167 /home/profesor/Descargas/CLASE_13/pantalla.h
 
-1538602599 /home/alumno/nicolasNavarro/programacion_1/CLASE_13/utn.h
+1524691840 /home/profesor/Descargas/CLASE_13/utn.h
 
-1538604614 source:/home/alumno/nicolasNavarro/programacion_1/CLASE_13/pantalla.c
-	<stdio.h>
-	<stdlib.h>
-	<time.h>
-	<string.h>
-	"pantalla.h"
-	"utn.h"
-
-1538602599 source:/home/alumno/nicolasNavarro/programacion_1/CLASE_13/utn.c
-	<stdio.h>
-	<stdlib.h>
-	<time.h>
-	<string.h>
-	"utn.h"
-
-1538613799 source:/home/alumno/nicolasNavarro/programacion_1/CLASE_13/informar.c
-	<stdio.h>
-	<stdlib.h>
-	<time.h>
-	<string.h>
-	"Contratacion.h"
-	"utn.h"
-	"pantalla.h"
-
-1538613434 source:/home/alumno/nicolasNavarro/programacion_1/CLASE_13/main.c
+1538609129 source:/home/profesor/Descargas/CLASE_13/main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -203,5 +179,30 @@
 	"Contratacion.h"
 	"informar.h"
 
-1538613056 /home/alumno/nicolasNavarro/programacion_1/CLASE_13/informar.h
+1538609167 /home/profesor/Descargas/CLASE_13/informar.h
+
+1538610699 source:/home/profesor/Descargas/CLASE_13/pantalla.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"pantalla.h"
+	"utn.h"
+
+1524691840 source:/home/profesor/Descargas/CLASE_13/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1538609167 source:/home/profesor/Descargas/CLASE_13/informar.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Contratacion.h"
+	"utn.h"
+	"pantalla.h"
+	"informar.h"
 
