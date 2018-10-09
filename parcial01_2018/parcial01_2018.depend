@@ -39,3 +39,44 @@
 
 1538702055 /home/alumno/nicolasnavarro/parcial01_2018/ventas.h
 
+1539054610 source:/home/nicolas/UTN/programacion_1/parcial01_2018/cliente.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"cliente.h"
+	"ventas.h"
+	<string.h>
+	<stdio_ext.h>
+
+1539041775 /home/nicolas/UTN/programacion_1/parcial01_2018/utn.h
+
+1539054610 /home/nicolas/UTN/programacion_1/parcial01_2018/cliente.h
+
+1539054610 /home/nicolas/UTN/programacion_1/parcial01_2018/ventas.h
+	"cliente.h"
+
+1539055475 source:/home/nicolas/UTN/programacion_1/parcial01_2018/main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"cliente.h"
+	"ventas.h"
+	<string.h>
+	<stdio_ext.h>
+
+1539044106 source:/home/nicolas/UTN/programacion_1/parcial01_2018/utn.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"utn.h"
+
+1539055128 source:/home/nicolas/UTN/programacion_1/parcial01_2018/ventas.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"cliente.h"
+	"ventas.h"
+	<string.h>
+	<stdio_ext.h>
+

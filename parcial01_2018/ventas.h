@@ -1,5 +1,6 @@
 #ifndef VENTAS_H_INCLUDED
 #define VENTAS_H_INCLUDED
+#include"cliente.h"
 
 typedef struct
 {
@@ -20,6 +21,7 @@ int ventas_set(Ventas* ventas,int index,int lengthVentas,char* nombre,int cantid
 int ventas_editar(Ventas* ventas,int lengthVentas,int idVenta);
 int venta_getVentaById(Ventas* ventas,int lengthVentas,int id);
 int ventas_cobrarVentas(Ventas* ventas,int lengthVentas,Cliente* cliente,int lengthClientes,int idVenta);
-
+int ventas_contarVentasDeCliente(Ventas* ventas,int lengthVentas,int idCliente);
+int ventas_cantidadVentas(Cliente* cliente,Ventas* venta,int lengthCliente,int lengthVentas);
 
 #endif // VENTAS_H_INCLUDED

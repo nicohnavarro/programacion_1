@@ -334,7 +334,7 @@ int utn_getTelefono(char* pBuffer,int limite,int reintentos,char* msg,char* msgE
 
 static int getGiones(char* pBuffer)
 {
-    int i;
+    int i=0;
     int retorno=-1;
     int contadorDeGuiones=0;
     do{
