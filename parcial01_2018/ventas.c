@@ -5,8 +5,8 @@
 #include "ventas.h"
 #include <string.h>
 #include <stdio_ext.h>
-#define QTY_CLIENTES 10
-#define QTY_VENTAS 20
+#define QTY_CLIENTES 100
+#define QTY_VENTAS 1000
 #define ESTADO_ACOBRAR 0
 #define ESTADO_COBRADO 1
 #define CABA 0

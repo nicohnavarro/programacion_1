@@ -3,10 +3,11 @@
 #include "utn.h"
 #include "cliente.h"
 #include "ventas.h"
+#include "informes.h"
 #include <string.h>
 #include <stdio_ext.h>
-#define QTY_CLIENTES 10
-#define QTY_VENTAS 20
+#define QTY_CLIENTES 100
+#define QTY_VENTAS 1000
 #define ESTADO_ACOBRAR 0
 #define ESTADO_COBRADO 1
 #define CABA 0
@@ -27,10 +28,13 @@ int main()
     ventas_set(ventas,0,QTY_VENTAS,"Video_1.mp4",10,2,2,0);
     ventas_set(ventas,1,QTY_VENTAS,"Video_4.amv",5,1,0,0);
     ventas_set(ventas,2,QTY_VENTAS,"Video3.mp4",2,1,2,1);
-    ventas_set(ventas,3,QTY_VENTAS,"Propaganda3.mp5",4,0,2,0);
+    ventas_set(ventas,3,QTY_VENTAS,"Propaganda3.mp5",4,3,2,1);
     ventas_set(ventas,4,QTY_VENTAS,"Propaganda3.mp5",10,0,1,0);
     ventas_set(ventas,5,QTY_VENTAS,"Propaganda3.mp5",4,0,2,0);
     ventas_set(ventas,6,QTY_VENTAS,"Propaganda2.mp4",2,0,1,0);
+    ventas_set(ventas,7,QTY_VENTAS,"VIdeo.mp4",13,5,1,1);
+    ventas_set(ventas,8,QTY_VENTAS,"Progara.mp4",12,2,2,1);
+    ventas_set(ventas,9,QTY_VENTAS,"Videomp4",4,3,2,1);
     int opcion;
     int index;
     int idCliente;
@@ -39,8 +43,8 @@ int main()
     {
         printf("Menu de Clientes \n1-Alta de Cliente\n2-Modificar el Cliente\n"
         "3-Baja de Cliente\n4-Vender Afiches\n5-Editar Venta\n"
-        "6-Cobrar venta\n7-Impirimir Clientes\n8-Salir\n");
-        utn_getEntero(&opcion,2,"Ingrese opcion : ","Error de Opcion",0,8);
+        "6-Cobrar venta\n7-Impirimir Clientes\n8-Informes\n9-Salir\n");
+        utn_getEntero(&opcion,2,"Ingrese opcion : ","Error de Opcion",0,9);
         switch(opcion)
         {
          case 1:
@@ -88,9 +92,14 @@ int main()
             printf("7-Listar Clientes y Cantidad de Ventas\n");
             ventas_cantidadVentas(cliente,ventas,QTY_CLIENTES,QTY_VENTAS);
             break;
+        case 8:
+            system("clear");
+            printf("8-Informes\n");
+            informes_menu(cliente,ventas,QTY_CLIENTES,QTY_VENTAS);
+            break;
         }
 
-    }while(opcion!=8);
+    }while(opcion!=9);
 
 
     return 0;

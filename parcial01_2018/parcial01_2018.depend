@@ -80,3 +80,55 @@
 	<string.h>
 	<stdio_ext.h>
 
+1539213803 source:/home/alumno/nicolasNavarro/programacion_1/parcial01_2018/cliente.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"cliente.h"
+	"ventas.h"
+	<string.h>
+	<stdio_ext.h>
+
+1539207793 /home/alumno/nicolasNavarro/programacion_1/parcial01_2018/utn.h
+
+1539213803 /home/alumno/nicolasNavarro/programacion_1/parcial01_2018/cliente.h
+
+1539207793 /home/alumno/nicolasNavarro/programacion_1/parcial01_2018/ventas.h
+	"cliente.h"
+
+1539218408 source:/home/alumno/nicolasNavarro/programacion_1/parcial01_2018/main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"cliente.h"
+	"ventas.h"
+	"informes.h"
+	<string.h>
+	<stdio_ext.h>
+
+1539218293 source:/home/alumno/nicolasNavarro/programacion_1/parcial01_2018/informes.c
+	"cliente.h"
+	"ventas.h"
+	"utn.h"
+	<stdio.h>
+	<stdlib.h>
+	"informes.h"
+
+1539207793 source:/home/alumno/nicolasNavarro/programacion_1/parcial01_2018/utn.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"utn.h"
+
+1539213803 source:/home/alumno/nicolasNavarro/programacion_1/parcial01_2018/ventas.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"cliente.h"
+	"ventas.h"
+	<string.h>
+	<stdio_ext.h>
+
+1539218669 /home/alumno/nicolasNavarro/programacion_1/parcial01_2018/informes.h
+
