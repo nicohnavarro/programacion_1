@@ -82,6 +82,7 @@ int* new_array(int size); // Constructor
 int init_array(int* arrayInt,int limite,int valor);
 int show_array(int* arrayInt,int limite);
 int delete_array(int* arrayInt);// Destructor
+int* reSize_array(int* arrayInt,int size); //Redefine Redimensiona
 
 int main()
 {
@@ -107,8 +108,11 @@ int main()
     arrayEnteros=new_array(100);
     init_array(arrayEnteros,100,1024);
     show_array(arrayEnteros,100);
-    delete_array(arrayEnteros);
-
+    //delete_array(arrayEnteros);
+    arrayEnteros=reSize_array(arrayEnteros,50);
+    show_array(arrayEnteros,50);
+    arrayEnteros=reSize_array(arrayEnteros,150);
+    show_array(arrayEnteros,150);
 
     return 0;
 }
@@ -166,6 +170,20 @@ int delete_array(int* arrayInt) //Destructor
     {
         free(arrayInt);
         ret=0;
+    }
+    return ret;
+}
+int* reSize_array(int* arrayInt,int size) //Redefine Redimensiona
+{
+    int* ret=NULL;
+    int* arrayIntAux=NULL;
+    if(arrayInt!=NULL && size >0)
+    {
+        arrayIntAux=(int*)realloc(arrayInt,sizeof(int)*size);
+        if(arrayIntAux!=NULL)
+        {
+           ret=arrayIntAux;
+        }
     }
     return ret;
 }
