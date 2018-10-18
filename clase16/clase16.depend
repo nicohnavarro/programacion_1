@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1539825809 source:/home/alumno/nicolasNavarro/programacion_1/clase16/main.c
+1539826213 source:/home/alumno/nicolasNavarro/programacion_1/clase16/main.c
 	<stdio.h>
 	<stdlib.h>
 	"empleado.h"

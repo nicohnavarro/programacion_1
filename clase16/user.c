@@ -15,7 +15,7 @@ User* user_new(void)
 User* user_newParametros(int userId,char* name,char* email)
 {
     User* this=user_new();
-    if(this!=NULL ||
+    if(this==NULL ||
         user_setUserId(this,userId) ||
         user_setName(this,name) ||
         user_setEmail(this,email))

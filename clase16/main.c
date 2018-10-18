@@ -10,7 +10,7 @@ int main()
     auxiliar=empleado_newParametros("juan","perez",1.83);
     empleado_print(auxiliar);
     */
-
+/*
     Empleado* listaEmpleados[1000];
     int qtyEmpleados=0;
     int i;
@@ -25,7 +25,7 @@ int main()
     for(i=0;i<qtyEmpleados;i++)
     {
         empleado_print(listaEmpleados[i]);
-    }
+    }*/
 
     /*
     Service* listaService[50];
@@ -42,21 +42,18 @@ int main()
     {
         service_print(listaService[i]);
     }
-
+*/
     User* listaUser[50];
     int qtyUser=0;
-    int j;
-    char auxiliar2[50];
-    for(j=0;j<20;j++)
+    int i;
+    for(i=0;i<20;i++)
     {
-        sprintf(auxiliar2,"Name %d",j);
-        listaUser[j]=user_newParametros(qtyUser,auxiliar2,"tunombre@gmail.com");
+        listaUser[i]=user_newParametros(qtyUser,"Nico","tunombre@gmail.com");
         qtyUser++;
     }
-    for(j=0;j<qtyUser;j++)
+    for(i=0;i<qtyUser;i++)
     {
-        user_print(listaUser[j]);
+        user_print(listaUser[i]);
     }
-    */
     return 0;
 }
