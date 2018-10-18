@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1539825809 source:/home/alumno/nicolasNavarro/programacion_1/clase16/main.c
+	<stdio.h>
+	<stdlib.h>
+	"empleado.h"
+	"service.h"
+	"user.h"
+
+1539815242 source:/home/alumno/nicolasNavarro/programacion_1/clase16/utn.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"utn.h"
+
+1539815239 /home/alumno/nicolasNavarro/programacion_1/clase16/utn.h
+
+1539825653 source:/home/alumno/nicolasNavarro/programacion_1/clase16/empleado.c
+	<stdio.h>
+	<stdlib.h>
+	"empleado.h"
+	<string.h>
+
+1539825708 /home/alumno/nicolasNavarro/programacion_1/clase16/empleado.h
+
+1539822650 source:/home/alumno/nicolasNavarro/programacion_1/clase16/service.c
+	<stdio.h>
+	<stdlib.h>
+	"service.h"
+	<string.h>
+
+1539822018 /home/alumno/nicolasNavarro/programacion_1/clase16/service.h
+
+1539824247 source:/home/alumno/nicolasNavarro/programacion_1/clase16/user.c
+	<stdio.h>
+	<stdlib.h>
+	"user.h"
+	<string.h>
+
+1539824247 /home/alumno/nicolasNavarro/programacion_1/clase16/user.h
+
