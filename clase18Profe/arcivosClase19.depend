@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1540430126 source:/home/profesor/Ernesto/LABO1/arcivosClase19/main.c
+	<stdio.h>
+	<stdlib.h>
+	"cliente.h"
+
+1540427414 source:/home/profesor/Ernesto/LABO1/arcivosClase19/cliente.c
+	"cliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1540427433 /home/profesor/Ernesto/LABO1/arcivosClase19/cliente.h
+

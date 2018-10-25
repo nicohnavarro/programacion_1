@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1540422680 source:/home/alumno/nicolasNavarro/programacion_1/clase18/main.c
+	<stdio.h>
+	<stdlib.h>
+
+1540424106 source:/home/alumno/nicolasNavarro/programacion_1/clase18/cliente.c
+	"cliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1540424114 /home/alumno/nicolasNavarro/programacion_1/clase18/cliente.h
+
