@@ -15,7 +15,7 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
     int retorno=0;
     FILE* pArchivoEmployee;
-    pArchivoEmployee=fopen("data.csv","r");
+    pArchivoEmployee=fopen(path,"r");
     if(parser_EmployeeFromText(pArchivoEmployee,pArrayListEmployee))
     {
         retorno=1;
@@ -38,7 +38,20 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno=0;
+    FILE* pArchivoEmployee;
+    pArchivoEmployee=fopen(path,"r");
+    if(parser_EmployeeFromBinary(pArchivoEmployee,pArrayListEmployee))
+    {
+        retorno=1;
+    }
+    else
+    {
+        printf("Error de Archivo");
+    }
+    fclose(pArchivoEmployee);
+
+    return retorno;
 }
 
 /** \brief Alta de empleados
@@ -110,6 +123,28 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 {
+    FILE *pArchivo=fopen(path,"w");
+    Employee *pEmpleado;
+    int i;
+    char auxNombre[50];
+    int auxHoras;
+    int auxId;
+    int auxSueldo;
+    int lenArray=ll_len(pArrayListEmployee);
+    if(pArchivo!=NULL)
+    {
+        for(i=0;i<lenArray;i++)
+        {
+            pEmpleado=(Employee*)ll_get(pArrayListEmployee,i);
+            Employee_getId(pEmpleado,&auxId);
+            Employee_getNombre(pEmpleado,auxNombre);
+            Employee_getHorasTrabajadas(pEmpleado,&auxHoras);
+            Employee_getSueldo(pEmpleado,&auxSueldo);
+
+            fprintf(pArchivo,"%d,%s,%d,%d\n",auxId,auxNombre,auxHoras,auxSueldo);
+        }
+    }
+    fclose(pArchivo);
     return 1;
 }
 
@@ -122,6 +157,19 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
 {
+    FILE *pArchivo=fopen(path,"wb");
+    Employee *pEmpleado;
+    int i;
+    int lenArray=ll_len(pArrayListEmployee);
+    if(pArchivo!=NULL)
+    {
+        for(i=0;i<lenArray;i++)
+        {
+            pEmpleado=(Employee*)ll_get(pArrayListEmployee,i);
+            fwrite(pEmpleado,sizeof(Employee),1,pArchivo);
+        }
+    }
+    fclose(pArchivo);
     return 1;
 }
 

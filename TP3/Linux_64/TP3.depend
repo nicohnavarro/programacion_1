@@ -61,15 +61,15 @@
 
 1540507989 /home/alumno/nicolasNavarro/programacion_1/TP3/Linux_64/Employee.h
 
-1540511190 source:/home/alumno/nicolasNavarro/programacion_1/TP3/Linux_64/Controller.c
+1541032600 source:/home/alumno/nicolasNavarro/programacion_1/TP3/Linux_64/Controller.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"Employee.h"
 
-1533133022 /home/alumno/nicolasNavarro/programacion_1/TP3/Linux_64/LinkedList.h
+1541026121 /home/alumno/nicolasNavarro/programacion_1/TP3/Linux_64/LinkedList.h
 
-1540513120 source:/home/alumno/nicolasNavarro/programacion_1/TP3/Linux_64/main.c
+1541032009 source:/home/alumno/nicolasNavarro/programacion_1/TP3/Linux_64/main.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -78,9 +78,18 @@
 
 1533133022 /home/alumno/nicolasNavarro/programacion_1/TP3/Linux_64/Controller.h
 
-1540511687 source:/home/alumno/nicolasNavarro/programacion_1/TP3/Linux_64/parser.c
+1541027487 source:/home/alumno/nicolasNavarro/programacion_1/TP3/Linux_64/parser.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"Employee.h"
+
+1541028874 source:/home/alumno/nicolasNavarro/programacion_1/TP3/Linux_64/utn.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"utn.h"
+
+1541028874 /home/alumno/nicolasNavarro/programacion_1/TP3/Linux_64/utn.h
 
