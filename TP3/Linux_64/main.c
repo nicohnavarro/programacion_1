@@ -64,6 +64,7 @@ int main()
                 printf("Los Datos Han sido Cargados Exitosamente\n");
                 break;
             case 3:
+                controller_addEmployee(listaEmpleados);
                 break;
             case 4:
                 break;
