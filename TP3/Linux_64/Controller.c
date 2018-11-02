@@ -63,7 +63,29 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno=0;
+    char auxNombre[50];
+    int auxHorasTrabajadas;
+    int auxSueldo;
+    Employee *pEmpleado;
+    pEmpleado=Employee_new();
+    if(pEmpleado!=NULL)
+    {
+        if(!utn_getEntero(&auxSueldo,1,"Ingrese Sueldo: ","Error de Sueldo",0,100000) &&
+           !utn_getLetras(auxNombre,30,1,"Ingrese Nombre: ","Error de Nombre") &&
+           !utn_getEntero(&auxHorasTrabajadas,1,"Ingrese Horas Trabajadas: ","Error de Horas",0,10000))
+        {
+            if(!Employee_setSueldo(pEmpleado,auxSueldo) &&
+               !Employee_setHorasTrabajadas(pEmpleado,auxHorasTrabajadas) &&
+               !Employee_setNombre(pEmpleado,auxNombre) &&
+               !Employee_setId(pEmpleado,-1))
+            {
+                ll_add(pArrayListEmployee,pEmpleado);
+                retorno=1;
+            }
+        }
+    }
+    return retorno;
 }
 
 /** \brief Modificar datos de empleado

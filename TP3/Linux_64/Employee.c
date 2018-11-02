@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+static int isValidName(char* name);
 
 Employee* Employee_new()
 {
@@ -65,7 +66,7 @@ int Employee_getId(Employee* this,int* id)
 int Employee_setNombre(Employee* this,char* nombre)
 {
     int retorno=-1;
-    if(this!=NULL && nombre!=NULL)
+    if(this!=NULL && !isValidName(nombre))
     {
         strcpy(this->nombre,nombre);
         retorno=0;
@@ -128,3 +129,12 @@ int Employee_getSueldo(Employee* this,int* sueldo)
     return retorno;
 }
 
+static int isValidName(char* name)
+{
+    int retorno=-1;
+    if(name!=NULL)
+    {
+        retorno=0;
+    }
+    return retorno;
+}
