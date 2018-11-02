@@ -1,0 +1,17 @@
+/*
+-Clase 21
+
+TP4
+Hacer una linkedlist
+desarrollo ambientando en tests
+Hacer los Tests
+Biblioteca Linkedlist
+node* n = malloc(sizeof(node))
+	n->pElement;
+	n->pNextNode;
+
+get nodo
+	puntero a nodo
+
+
+*/
