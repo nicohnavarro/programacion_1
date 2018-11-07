@@ -32,8 +32,6 @@ controller_saveAsBinary("data.bin",listaEmpleados);
 controller_loadFromBinary("data.bin",listaEmpleados);
 
 */
-void mostrar(LinkedList*lista);
-
 int main()
 {
     int option = 0;
@@ -57,7 +55,6 @@ int main()
             case 1:
                 controller_loadFromText("data.csv",listaEmpleados);
                 printf("Los Datos Han sido Cargados Exitosamente\n");
-                //mostrar(listaEmpleados);
                 break;
             case 2:
                 controller_loadFromBinary("data.bin",listaEmpleados);
@@ -67,13 +64,16 @@ int main()
                 controller_addEmployee(listaEmpleados);
                 break;
             case 4:
+                controller_editEmployee(listaEmpleados);
                 break;
             case 5:
+                controller_removeEmployee(listaEmpleados);
                 break;
             case 6:
-                mostrar(listaEmpleados);
+                controller_ListEmployee(listaEmpleados);
                 break;
             case 7:
+                controller_sortEmployee(listaEmpleados);
                 break;
             case 8:
                 controller_saveAsText("output.cvs",listaEmpleados);
@@ -84,32 +84,10 @@ int main()
                 break;
         }
     }while(option != 10);
-    //mostrar(listaEmpleados);
     printf("**************\n");
-    //controller_loadFromText("data.csv",listaEmpleados);
-    //mostrar(listaEmpleados);
     return 0;
 }
 
-void mostrar(LinkedList* lista)
-{
-    int i;
-    int auxId;
-    char auxNombre[50];
-    Employee* aux;
-
-    for(i=0;i<ll_len(lista);i++)
-    {
-
-        //Employee* aux = arrayPunteroEmployee[i];
-        aux=(Employee*)ll_get(lista,i);
-
-
-        Employee_getId(aux,&auxId);
-        Employee_getNombre(aux,auxNombre);
-        printf("\nID: %d - NOMBRE: %s", auxId,auxNombre);
-    }
-}
 /*
 int buscarPorID(LinkedList* array,int id)
 {

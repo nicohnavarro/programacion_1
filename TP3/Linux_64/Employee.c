@@ -138,3 +138,21 @@ static int isValidName(char* name)
     }
     return retorno;
 }
+
+int Employee_criterioName(void *thisA,void *thisB)
+{
+    int retorno=0;
+    char nameA[128];
+    char nameB[128];
+    Employee_getNombre((Employee*)thisA,nameA);
+    Employee_getNombre((Employee*)thisB,nameB);
+    if(strcmp(nameA,nameB)>0)
+    {
+        retorno=1;
+    }
+    if(strcmp(nameA,nameB)<0)
+    {
+        retorno=-1;
+    }
+    return retorno;
+}

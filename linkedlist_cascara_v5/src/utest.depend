@@ -4362,3 +4362,249 @@
 	<string.h>
 	"../inc/LinkedList.h"
 
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/addNodeTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/utest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/inc/LinkedList.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/Employee.h
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/addTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/clearTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/cloneTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/containsAllTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/containsTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/deleteLinkedListTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/Employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/getNodeTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/getTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/indexOfTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/isEmptyTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/lenTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/main_test.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	"../inc/newTest.h"
+	"../inc/addTest.h"
+	"../inc/getNodeTest.h"
+	"../inc/addNodeTest.h"
+	"../inc/deleteLinkedListTest.h"
+	"../inc/lenTest.h"
+	"../inc/getTest.h"
+	"../inc/containsTest.h"
+	"../inc/setTest.h"
+	"../inc/removeTest.h"
+	"../inc/clearTest.h"
+	"../inc/cloneTest.h"
+	"../inc/pushTest.h"
+	"../inc/indexOfTest.h"
+	"../inc/isEmptyTest.h"
+	"../inc/popTest.h"
+	"../inc/subListTest.h"
+	"../inc/containsAllTest.h"
+	"../inc/sortTest.h"
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/newTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/addTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/getNodeTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/addNodeTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/deleteLinkedListTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/lenTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/getTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/containsTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/setTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/removeTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/clearTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/cloneTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/pushTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/indexOfTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/isEmptyTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/popTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/subListTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/containsAllTest.h
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/sortTest.h
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/newTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/popTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/pushTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/removeTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/setTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/sortTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/src/subListTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/utest.c
+	"utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/src/LinkedList.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../inc/LinkedList.h"
+
+1541124667 source:/home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/src/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../testing/inc/main_test.h"
+	"../inc/LinkedList.h"
+
+1541124667 /home/nicolas/UTN/programacion_1/linkedlist_cascara_v5/testing/inc/main_test.h
+
