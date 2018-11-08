@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "LinkedList.h"
 #include "Employee.h"
-
+static int findEmployeeById(LinkedList *pArrayListEmployee, int id);
 
 /** \brief Carga los datos de los empleados desde el archivo data.csv (modo texto).
  *
@@ -16,7 +16,7 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
     int retorno=0;
     FILE* pArchivoEmployee;
     pArchivoEmployee=fopen(path,"r");
-    if(parser_EmployeeFromText(pArchivoEmployee,pArrayListEmployee))
+    if(parser_EmployeeFromText(pArchivoEmployee,pArrayListEmployee)==1)
     {
         retorno=1;
     }
@@ -41,7 +41,7 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
     int retorno=0;
     FILE* pArchivoEmployee;
     pArchivoEmployee=fopen(path,"r");
-    if(parser_EmployeeFromBinary(pArchivoEmployee,pArrayListEmployee))
+    if(parser_EmployeeFromBinary(pArchivoEmployee,pArrayListEmployee)==1)
     {
         retorno=1;
     }
@@ -72,7 +72,7 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
     if(pEmpleado!=NULL)
     {
         if(!utn_getEntero(&auxSueldo,1,"Ingrese Sueldo: ","Error de Sueldo",0,100000) &&
-           !utn_getLetras(auxNombre,30,1,"Ingrese Nombre: ","Error de Nombre") &&
+           !utn_getLetras(auxNombre,50,1,"Ingrese Nombre: ","Error de Nombre") &&
            !utn_getEntero(&auxHorasTrabajadas,1,"Ingrese Horas Trabajadas: ","Error de Horas",0,10000))
         {
             if(!Employee_setSueldo(pEmpleado,auxSueldo) &&
@@ -97,7 +97,27 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno=-1;
+    char auxNombre[50];
+    int auxHorasTrabajadas;
+    int auxSueldo;
+    int index;
+    int id;
+    utn_getEntero(&id,2,"Ingrese Id Del Empleado a Editar: ","Error de Id",0,10000);
+    index=findEmployeeById(pArrayListEmployee,id);
+    Employee *auxEmployee=ll_get(pArrayListEmployee,index);
+    if(auxEmployee!=NULL &&
+       !utn_getEntero(&auxSueldo,1,"Ingrese Nuevo Sueldo: ","Error de Sueldo",0,100000) &&
+       !utn_getLetras(auxNombre,50,1,"Ingrese Nuevo Nombre: ","Error de Nombre") &&
+       !utn_getEntero(&auxHorasTrabajadas,1,"Ingrese Nuevas Horas Trabajadas: ","Error de Horas",0,10000))
+    {
+        Employee_setNombre(auxEmployee, auxNombre);
+        Employee_setHorasTrabajadas(auxEmployee, auxHorasTrabajadas);
+        Employee_setSueldo(auxEmployee, auxSueldo);
+        retorno = 0;
+    }
+    return retorno;
+
 }
 
 /** \brief Baja de empleado
@@ -109,7 +129,19 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno=-1;
+    int id;
+    int index;
+    utn_getEntero(&id,2,"Ingrese id del Empleado a Borrar: ","Error de Id",0,10000);
+    index=findEmployeeById(pArrayListEmployee,id);
+    if(index!= -1 && pArrayListEmployee!=NULL)
+    {
+        Employee *auxEmployee= ll_get(pArrayListEmployee, index);
+        Employee_delete(auxEmployee);
+        ll_remove(pArrayListEmployee,index);
+        retorno=0;
+    }
+    return retorno;
 }
 
 /** \brief Listar empleados
@@ -121,7 +153,30 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno=0;
+    int i;
+    int auxId;
+    char auxNombre[50];
+    int auxSueldo;
+    int auxHorasTrabajadas;
+    Employee* aux;
+    int len=ll_len(pArrayListEmployee);
+
+    for(i=0;i<len;i++)
+    {
+
+        //Employee* aux = arrayPunteroEmployee[i];
+        aux=(Employee*)ll_get(pArrayListEmployee,i);
+
+
+        Employee_getId(aux,&auxId);
+        Employee_getNombre(aux,auxNombre);
+        Employee_getHorasTrabajadas(aux,&auxHorasTrabajadas);
+        Employee_getSueldo(aux,&auxSueldo);
+        printf("\nID: %d - NOMBRE: %s - SUELDO: $%d - HORAS: %d\n", auxId,auxNombre,auxSueldo,auxHorasTrabajadas);
+        retorno=1;
+    }
+    return retorno;
 }
 
 /** \brief Ordenar empleados
@@ -133,7 +188,13 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno=-1;
+    if(pArrayListEmployee!=NULL)
+    {
+        ll_sort(pArrayListEmployee,Employee_criterioName,1);
+        retorno=0;
+    }
+    return retorno;
 }
 
 /** \brief Guarda los datos de los empleados en el archivo data.csv (modo texto).
@@ -195,3 +256,26 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
     return 1;
 }
 
+static int findEmployeeById(LinkedList *pArrayListEmployee, int id)
+{
+    int i;
+    int index = -1;
+    Employee *auxE;
+    int auxId;
+    int len = ll_len(pArrayListEmployee);
+    if (len > 0 && pArrayListEmployee != NULL)
+    {
+        for (i = 0; i < len; i++)
+        {
+            auxE = ll_get(pArrayListEmployee, i);
+            Employee_getId(auxE, &auxId);
+            if (auxId == id)
+            {
+                index = i;
+                break;
+            }
+        }
+    }
+
+    return index;
+}
