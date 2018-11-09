@@ -3,7 +3,6 @@
 #include <string.h>
 #include "../inc/LinkedList.h"
 
-
 static Node* getNode(LinkedList* this, int nodeIndex);
 static int addNode(LinkedList* this, int nodeIndex,void* pElement);
 
@@ -292,7 +291,7 @@ int ll_deleteLinkedList(LinkedList* this)
     int returnAux = -1;
     if(this != NULL)
     {
-        if(ll_clear(this)==0)
+        if(!ll_clear(this))
         {
             free(this);
             returnAux=0;
@@ -346,7 +345,8 @@ int ll_isEmpty(LinkedList* this)
         if(size > 0)
         {
             returnAux=0;
-        }else
+        }
+        else
         {
             returnAux=1;
         }
@@ -449,25 +449,20 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
 {
     int returnAux = -1;
     int i;
-    int size=ll_len(this);
+    //int size=ll_len(this);
     int size2=ll_len(this2);
     void* pElement;
-    int igualdades=0;
-    if(this != NULL && this2 != NULL && size>0 && size2>0)
+    if(this != NULL && this2 != NULL)
     {
-        returnAux=0;
-        for(i=0;i<size;i++)
+        returnAux=1;
+        for(i=0;i<size2;i++)
         {
-            pElement=ll_get(this,i);
-            if(ll_contains(this2,pElement))
+            pElement=ll_get(this2,i);
+            if(!ll_contains(this,pElement))
                 {
-                    igualdades++;
+                    returnAux=0;
+                    break;
                 }
-        }
-
-        if(igualdades==size && size==size2)
-        {
-            returnAux=1;
         }
     }
     return returnAux;
@@ -568,8 +563,81 @@ LinkedList* ll_clone(LinkedList* this)
 int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
 {
     int returnAux =-1;
+    int i;
+    int size=ll_len(this);
+    void* thisA;
+    void* thisB;
+    int flagSwap;
+    int retOrderValue;
+    if(this != NULL && size > 0 && pFunc != NULL && (order==0 || order==1))
+    {
 
+        do
+        {
+            flagSwap=0;
+            for(i=0;i<size-1;i++)
+            {
+                thisA=ll_get(this,i);
+                thisB=ll_get(this,i+1);
+                if(thisA!=NULL && thisB!=NULL)
+                {
+                    retOrderValue=pFunc(thisA,thisB);
+                    if((retOrderValue==-1 && order==0) || (retOrderValue==1 && order==1))
+                    {
+                        flagSwap=1;
+                        ll_set(this,i,thisB);
+                        ll_set(this,i+1,thisA);
+                    }
+
+                }
+
+            }
+        }while(flagSwap==1);
+        returnAux=0;
+    }
     return returnAux;
 
 }
 
+LinkedList* ll_filter(LinkedList* this,int (*pFunc)(void*))
+{
+    int i;
+    int size=ll_len(this);
+    int retFuncValue;
+    void* thisA;
+    LinkedList* laFiltrada = NULL;
+    laFiltrada=ll_newLinkedList();
+    if(this!=NULL && size>0 && *pFunc!=NULL)
+    {
+        for(i=0;i<size;i++)
+        {
+            thisA=ll_get(this,i);
+            retFuncValue=pFunc(thisA);
+            if(thisA!=NULL && retFuncValue==1)
+            {
+                ll_add(laFiltrada,thisA);
+            }
+        }
+    }
+    else
+    {
+        ll_deleteLinkedList(laFiltrada);
+    }
+    return laFiltrada;
+}
+
+void* ll_startIter(LinkedList* this)
+{
+   return this->pFirstNode;
+}
+
+void* ll_getNext(LinkedList* this)
+{
+    this->pIterNode=ll_startIter(this);
+    void* pElementAux =NULL;
+
+    pElementAux=this->pIterNode->pElement;
+    this->pIterNode=this->pIterNode->pNextNode;
+
+    return pElementAux;
+}
