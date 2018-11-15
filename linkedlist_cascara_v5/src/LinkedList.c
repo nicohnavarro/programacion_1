@@ -641,3 +641,38 @@ void* ll_getNext(LinkedList* this)
 
     return pElementAux;
 }
+
+void* ll_getNextNode(LinkedList* this)
+{
+    Node* nodeAux=NULL;
+    nodeAux=this->pIterNode;
+    this->pIterNode=this->pIterNode->pNextNode;
+
+    return nodeAux;
+}
+
+int ll_map(LinkedList* this,int (*pFunc)(void*))
+{
+    int retFuncValue;
+    int retorno=0;
+    Node* thisA=NULL;
+    thisA=ll_startIter(this);
+    if(this!=NULL && pFunc != NULL)
+    {
+        do
+        {
+            retFuncValue=pFunc(thisA->pElement);
+            thisA=ll_getNextNode(this);
+            if(retFuncValue)
+            {
+                retorno=1;
+            }
+            else
+            {
+                retorno=0;
+            }
+        }while(thisA!=NULL);
+    }
+
+    return retorno;
+}
