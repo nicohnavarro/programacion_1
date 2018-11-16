@@ -656,9 +656,10 @@ int ll_map(LinkedList* this,int (*pFunc)(void*))
     int retFuncValue;
     int retorno=0;
     Node* thisA=NULL;
-    thisA=ll_startIter(this);
+
     if(this!=NULL && pFunc != NULL)
     {
+        thisA=ll_startIter(this);
         do
         {
             retFuncValue=pFunc(thisA->pElement);
