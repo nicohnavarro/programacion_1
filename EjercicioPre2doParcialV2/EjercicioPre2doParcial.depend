@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1542510242 source:/home/nicolas/UTN/programacion_1/EjercicioPre2doParcialV2/LinkedList.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1542510254 /home/nicolas/UTN/programacion_1/EjercicioPre2doParcialV2/LinkedList.h
+
+1542508050 source:/home/nicolas/UTN/programacion_1/EjercicioPre2doParcialV2/Parser.c
+	"LinkedList.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Empleado.h"
+
+1542509211 source:/home/nicolas/UTN/programacion_1/EjercicioPre2doParcialV2/Empleado.c
+	"Empleado.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1542505108 /home/nicolas/UTN/programacion_1/EjercicioPre2doParcialV2/Empleado.h
+
+1542909512 source:/home/nicolas/UTN/programacion_1/EjercicioPre2doParcialV2/main.c
+	<stdio.h>
+	<stdlib.h>
+	"Empleado.h"
+	"LinkedList.h"
+	"Parser.h"
+
+1542504914 /home/nicolas/UTN/programacion_1/EjercicioPre2doParcialV2/Parser.h
+	"LinkedList.h"
+

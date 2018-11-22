@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Empleado.h"
-#include "ArrayList.h"
+#include "LinkedList.h"
 #include "Parser.h"
 
 /**
@@ -22,23 +22,23 @@
     original pero con una columna mas al final, en donde se indicara el sueldo calculado.
 */
 
-int generarArchivoSueldos(char* fileName,ArrayList* listaEmpleados);
+int generarArchivoSueldos(char* fileName,LinkedList* listaEmpleados);
 
 int main()
 {
     // Definir lista de empleados
-    ArrayList* listaEmpleados;
+    LinkedList* listaEmpleados;
 
     // Crear lista empledos
     //...
-
+    listaEmpleados=ll_newLinkedList();
     // Leer empleados de archivo data.csv
     if(parser_parseEmpleados("data.csv",listaEmpleados)==1)
     {
         // Calcular sueldos
         printf("Calculando sueldos de empleados\n");
-        al_map(listaEmpleados,em_calcularSueldo);
-
+        ll_map(listaEmpleados,em_calcularSueldo);
+        printf("HOLA.");
         // Generar archivo de salida
         if(generarArchivoSueldos("sueldos.csv",listaEmpleados)==1)
         {
@@ -54,7 +54,31 @@ int main()
     return 0;
 }
 
-int generarArchivoSueldos(char* fileName,ArrayList* listaEmpleados)
+int generarArchivoSueldos(char* fileName,LinkedList* listaEmpleados)
 {
-    return 1;
+    int retorno=0;
+    FILE* pFile;
+    int i;
+    int len=ll_len(listaEmpleados);
+    Empleado* aux=NULL;
+    int auxId;
+    int auxHoras;
+    int auxSalario;
+    char auxNombre[50];
+    if(listaEmpleados!=NULL)
+    {
+        retorno=1;
+        pFile=fopen(fileName,"w");
+        for(i=0;i<len;i++)
+        {
+            aux=ll_get(listaEmpleados,i);
+            Empleado_getId(aux,&auxId);
+            Empleado_getName(aux,auxNombre);
+            Empleado_getHorasTrabajadas(aux,&auxHoras);
+            Empleado_getSalario(aux,&auxSalario);
+            fprintf(pFile,"%d,%s,%d,%d\n",auxId,auxNombre,auxHoras,auxSalario);
+        }
+    }
+    fclose(pFile);
+    return retorno;
 }
