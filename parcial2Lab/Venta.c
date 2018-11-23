@@ -184,7 +184,7 @@ int Venta_setCantidad(Venta* this,char* cantidad)
     return retorno;
 }
 
-int Venta_getUnidades(Venta* this,int* cantidad)
+int Venta_getCantidad(Venta* this,int* cantidad)
 {
     int retorno=-1;
     if(this!=NULL)
@@ -336,10 +336,14 @@ int venta_mayores1(void* element)
     int retorno=0;
     auxVenta=(Venta*)element;
     float precio;
+    float montoFinal;
+    int cantidad;
     if(auxVenta!=NULL)
     {
         Venta_getPrecio_unitario(auxVenta,&precio);
-        if(precio>10000)
+        Venta_getCantidad(auxVenta,&cantidad);
+        montoFinal=precio*cantidad;
+        if(montoFinal>10000)
         {
             retorno=1;
         }
@@ -353,10 +357,14 @@ int venta_mayores2(void* element)
     int retorno=0;
     auxVenta=(Venta*)element;
     float precio;
+    int ventas;
+    float montoFinal;
     if(auxVenta!=NULL)
     {
         Venta_getPrecio_unitario(auxVenta,&precio);
-        if(precio>20000)
+        Venta_getCantidad(auxVenta,&ventas);
+        montoFinal=precio*ventas;
+        if(montoFinal>20000)
         {
             retorno=1;
         }
