@@ -1,0 +1,47 @@
+# depslib dependency file v1.0
+1542929700 source:/home/alumno/nicolasnavarro/programacion_1/parcial2Lab/main.c
+	<stdio.h>
+	<stdlib.h>
+	"Venta.h"
+	"LinkedList.h"
+	"Parser.h"
+	"generadorInformes.h"
+
+1542927042 source:/home/alumno/nicolasnavarro/programacion_1/parcial2Lab/Parser.c
+	<stdio_ext.h>
+	<stdlib.h>
+	"Venta.h"
+	<string.h>
+	<ctype.h>
+	"LinkedList.h"
+
+1542931206 source:/home/alumno/nicolasnavarro/programacion_1/parcial2Lab/Venta.c
+	"Venta.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"LinkedList.h"
+
+1542931206 /home/alumno/nicolasnavarro/programacion_1/parcial2Lab/Venta.h
+
+1542929269 source:/home/alumno/nicolasnavarro/programacion_1/parcial2Lab/LinkedList.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1542929088 /home/alumno/nicolasnavarro/programacion_1/parcial2Lab/LinkedList.h
+
+1542922863 /home/alumno/nicolasnavarro/programacion_1/parcial2Lab/Parser.h
+	"LinkedList.h"
+
+1542931311 source:/home/alumno/nicolasnavarro/programacion_1/parcial2Lab/generadorInformes.c
+	<stdio.h>
+	<stdlib.h>
+	"Venta.h"
+	"LinkedList.h"
+	"generadorInformes.h"
+
+1542927900 /home/alumno/nicolasnavarro/programacion_1/parcial2Lab/generadorInformes.h
+
